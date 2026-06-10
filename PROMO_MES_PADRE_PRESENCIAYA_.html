@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PresenciaYA | Promo Especial Mes del Padre 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Archivo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --naranja: #F59E0B;
+  --naranja-dark: #D97706;
+  --verde: #10B981;
+  --navy: #0F172A;
+  --navy-soft: #1E293B;
+  --cream: #FAF8F5;
+  --gray: #94A3B8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Archivo', sans-serif; background: var(--navy); color: var(--cream); overflow-x: hidden; line-height: 1.6; }
+.section { padding: 70px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.badge { display: inline-block; background: var(--naranja); color: var(--navy); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 8px 24px; border-radius: 50px; margin-bottom: 28px; }
+.logo { font-family: 'Playfair Display', serif; font-size: clamp(38px, 8vw, 64px); font-weight: 900; color: var(--naranja); margin-bottom: 8px; text-align: center; }
+.logo span { color: var(--cream); }
+.tagline { font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: var(--gray); margin-bottom: 36px; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 6vw, 50px); font-weight: 900; line-height: 1.15; max-width: 780px; margin: 0 auto 28px; text-align: center; }
+.highlight { color: var(--naranja); font-style: italic; }
+.intro-text { font-size: clamp(16px, 2vw, 19px); color: #CBD5E1; max-width: 660px; margin: 0 auto 20px; line-height: 1.8; text-align: center; }
+.story-box { background: rgba(245,158,11,0.08); border-left: 4px solid var(--naranja); padding: 22px 28px; max-width: 660px; margin: 28px auto 0; border-radius: 0 8px 8px 0; font-size: 17px; color: var(--cream); font-style: italic; }
+
+/* SECCIÓN 1 */
+.section-1 { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%); border-bottom: 3px solid var(--naranja); text-align: center; min-height: 100vh; }
+
+/* SECCIÓN 2 — PROBLEMA */
+.section-2 { background: var(--navy-soft); text-align: center; }
+.section-2 h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 42px); font-weight: 900; max-width: 700px; margin-bottom: 50px; }
+.problema-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 820px; margin-bottom: 40px; }
+.problema-card { background: rgba(15,23,42,0.8); border: 1px solid rgba(245,158,11,0.2); border-radius: 12px; padding: 28px 24px; text-align: left; }
+.problema-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+.problema-titulo { font-weight: 700; font-size: 17px; color: var(--cream); margin-bottom: 8px; }
+.problema-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+/* SECCIÓN 3 — SOLUCIÓN */
+.section-3 { background: var(--navy); text-align: center; }
+.section-3 h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 42px); font-weight: 900; max-width: 700px; margin-bottom: 16px; }
+.section-3 .sub { color: var(--gray); font-size: 17px; margin-bottom: 50px; max-width: 600px; }
+.solucion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin-bottom: 40px; }
+.solucion-card { background: var(--navy-soft); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 28px 20px; text-align: center; }
+.solucion-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+.solucion-titulo { font-weight: 700; font-size: 16px; color: var(--naranja); margin-bottom: 8px; }
+.solucion-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+/* SECCIÓN 4 — FORTALEZA */
+.section-4 { background: var(--navy-soft); text-align: center; }
+.section-4 h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 40px); font-weight: 900; margin-bottom: 30px; }
+.fortaleza-box { background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.25); border-radius: 16px; padding: 40px; max-width: 720px; text-align: left; }
+.fortaleza-box p { font-size: 17px; color: #CBD5E1; line-height: 1.9; margin-bottom: 16px; }
+.fortaleza-box p:last-child { margin-bottom: 0; color: var(--cream); font-weight: 600; }
+
+/* SECCIÓN 5 — PLANES */
+.section-5 { background: var(--navy); text-align: center; }
+.section-5 h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 42px); font-weight: 900; margin-bottom: 12px; }
+.section-5 .sub { color: var(--gray); font-size: 16px; margin-bottom: 50px; }
+.planes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin-bottom: 50px; }
+.plan-card { background: var(--navy-soft); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 36px 24px; position: relative; transition: transform 0.3s ease; }
+.plan-card:hover { transform: translateY(-6px); }
+.plan-card.featured { border: 2px solid var(--naranja); background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(245,158,11,0.03)); }
+.plan-card.featured::before { content: '⭐ Más Solicitado'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--naranja); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 5px 18px; border-radius: 50px; white-space: nowrap; }
+.plan-nombre { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--naranja); font-weight: 700; margin-bottom: 10px; }
+.plan-precio { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 900; color: var(--cream); margin-bottom: 4px; }
+.plan-sub { font-size: 13px; color: var(--gray); margin-bottom: 6px; }
+.plan-promo { display: inline-block; background: rgba(16,185,129,0.15); color: var(--verde); font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 50px; margin: 10px 0 20px; border: 1px solid rgba(16,185,129,0.3); }
+.plan-features { list-style: none; text-align: left; margin-top: 16px; }
+.plan-features li { padding: 9px 0; font-size: 14px; color: #CBD5E1; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: flex-start; gap: 10px; }
+.plan-features li:last-child { border-bottom: none; }
+.plan-features li::before { content: '✓'; color: var(--verde); font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+.plan-btn { display: block; width: 100%; margin-top: 24px; background: var(--naranja); color: var(--navy); font-size: 15px; font-weight: 700; padding: 14px 20px; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; }
+.plan-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.4); }
+.plan-btn.outline { background: transparent; border: 2px solid var(--naranja); color: var(--naranja); }
+.plan-btn.outline:hover { background: var(--naranja); color: var(--navy); }
+
+/* SECCIÓN 6 — PROMO */
+.section-6 { background: linear-gradient(135deg, var(--naranja-dark) 0%, var(--naranja) 100%); color: var(--navy); text-align: center; }
+.section-6 h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 6vw, 54px); font-weight: 900; margin-bottom: 14px; }
+.section-6 .sub { font-size: 19px; font-weight: 300; max-width: 580px; margin: 0 auto 36px; }
+.cupos-badge { display: inline-block; background: var(--navy); color: var(--naranja); font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; padding: 14px 36px; border-radius: 12px; margin-bottom: 28px; animation: pulse 2s infinite; }
+.promo-box { background: rgba(15,23,42,0.2); border: 2px solid rgba(15,23,42,0.35); border-radius: 16px; padding: 34px 38px; max-width: 620px; margin: 0 auto 36px; }
+.promo-title { font-size: 21px; font-weight: 900; margin-bottom: 22px; color: var(--navy); }
+.promo-items { list-style: none; text-align: left; }
+.promo-items li { padding: 13px 0; font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(15,23,42,0.15); display: flex; align-items: center; gap: 12px; color: var(--navy); }
+.promo-items li:last-child { border-bottom: none; }
+.promo-items li .icon { font-size: 20px; flex-shrink: 0; }
+
+/* SECCIÓN 7 — CTA */
+.section-7 { background: var(--navy); text-align: center; }
+.section-7 h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 42px); font-weight: 900; max-width: 680px; margin-bottom: 40px; }
+.nicho-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 540px; margin: 0 auto 36px; }
+.nicho-btn { background: var(--navy-soft); border: 1px solid rgba(245,158,11,0.3); border-radius: 10px; padding: 16px 18px; font-size: 16px; font-weight: 600; color: var(--cream); cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 12px; }
+.nicho-btn:hover, .nicho-btn.selected { background: rgba(245,158,11,0.15); border-color: var(--naranja); color: var(--naranja); }
+.nicho-icon { font-size: 22px; }
+.cta-button { background: var(--naranja); color: var(--navy); font-size: 18px; font-weight: 700; padding: 20px 54px; border: none; border-radius: 50px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(245,158,11,0.35); margin-bottom: 16px; display: block; margin: 0 auto 16px; }
+.cta-button:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(245,158,11,0.5); }
+.urgency { font-size: 14px; color: var(--naranja); font-weight: 600; letter-spacing: 1px; animation: pulse 2s infinite; margin-bottom: 50px; }
+.success-msg { display: none; background: rgba(16,185,129,0.15); border: 1px solid var(--verde); border-radius: 10px; padding: 16px 28px; color: var(--verde); font-weight: 600; font-size: 16px; margin-top: 16px; }
+.footer { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 40px; text-align: center; margin-top: 50px; }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--naranja); margin-bottom: 10px; }
+.footer-logo span { color: var(--cream); }
+.footer-info { font-size: 15px; color: var(--gray); line-height: 2; }
+.footer-info a { color: var(--naranja); text-decoration: none; }
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+  .problema-grid, .solucion-grid, .planes-grid { grid-template-columns: 1fr; }
+  .nicho-grid { grid-template-columns: 1fr; }
+  .section { padding: 50px 16px; }
+}
+
+.plan-select-grid { display: flex; gap: 14px; margin: 0 auto 30px; justify-content: center; }
+.plan-select-btn { background: var(--navy-soft); border: 1px solid rgba(245,158,11,0.3); border-radius: 8px; padding: 12px 28px; font-size: 15px; font-weight: 600; color: var(--cream); cursor: pointer; transition: all 0.3s ease; font-family: 'Archivo', sans-serif; }
+.plan-select-btn:hover, .plan-select-btn.selected { background: rgba(245,158,11,0.15); border-color: var(--naranja); color: var(--naranja); }
+.form-box { background: var(--navy-soft); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 30px; max-width: 680px; width: 100%; margin: 0 auto 28px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 13px; font-weight: 700; color: var(--naranja); letter-spacing: 1px; text-transform: uppercase; }
+.form-group input { background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 12px 16px; font-size: 15px; color: var(--cream); font-family: 'Archivo', sans-serif; outline: none; transition: border 0.3s; }
+.form-group input:focus { border-color: var(--naranja); }
+.form-group input::placeholder { color: var(--gray); }
+.form-submit { justify-content: flex-end; }
+.enviar-btn { background: var(--navy); border: 2px solid var(--naranja); color: var(--naranja); font-size: 15px; font-weight: 700; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-family: 'Archivo', sans-serif; transition: all 0.3s ease; align-self: flex-end; }
+.enviar-btn:hover { background: var(--naranja); color: var(--navy); }
+@media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } .plan-select-grid { flex-direction: column; align-items: center; } }
+
+.plan-mensualidad { font-size: 13px; color: var(--gray); margin-bottom: 4px; }
+.inversion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 860px; margin-top: 40px; }
+.inversion-card { background: var(--navy-soft); border: 1px solid rgba(245,158,11,0.2); border-radius: 12px; padding: 28px 20px; text-align: center; }
+.inversion-titulo { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+.inversion-valor { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--naranja); margin-bottom: 8px; }
+.inversion-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+.inversion-promo { margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--verde); }
+@media (max-width: 768px) { .inversion-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- SECCIÓN 1 — GANCHO -->
+<section class="section section-1">
+  <div class="badge">🎁 Promo Especial · Mes del Padre 2026</div>
+  <div class="logo">Presencia<span>YA</span></div>
+  <div class="tagline">La presencia digital que vende</div>
+  <h1>¿Tu negocio <span class="highlight">existe en internet</span> o solo en la mente de tus clientes?</h1>
+  <p class="intro-text">Cada día que tu negocio no aparece en Google, un cliente potencial le compró a tu competencia. No porque sea mejor. Sino porque lo encontraron primero.</p>
+  <div class="story-box">"Una ferretería en Pereira perdió 3 clientes en una semana porque cuando buscaron 'ferretería cerca de mí', apareció otra. El dueño no sabía que existía esa otra ferretería — pero Google sí."</div>
+</section>
+
+<!-- SECCIÓN 2 — PROBLEMA -->
+<section class="section section-2">
+  <h2>No es falta de calidad. Es <span class="highlight">falta de presencia</span> en el momento correcto.</h2>
+  <div class="problema-grid">
+    <div class="problema-card">
+      <span class="problema-icon">🔍</span>
+      <div class="problema-titulo">Te buscan pero no existes</div>
+      <div class="problema-desc">Tus clientes potenciales buscan en Google. Si no tienes página web, simplemente no apareces para ellos.</div>
+    </div>
+    <div class="problema-card">
+      <span class="problema-icon">📱</span>
+      <div class="problema-titulo">Solo redes sociales</div>
+      <div class="problema-desc">Instagram y Facebook son útiles, pero no transmiten el profesionalismo que los clientes serios buscan.</div>
+    </div>
+    <div class="problema-card">
+      <span class="problema-icon">💸</span>
+      <div class="problema-titulo">Desarrollo web prohibitivo</div>
+      <div class="problema-desc">Un sitio tradicional cuesta $3M–$8M y tarda meses. Inaccesible para pequeños negocios.</div>
+    </div>
+    <div class="problema-card">
+      <span class="problema-icon">📄</span>
+      <div class="problema-titulo">Plantillas genéricas</div>
+      <div class="problema-desc">Páginas baratas que se ven iguales a mil más. No cuentan tu historia real.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN 3 — SOLUCIÓN -->
+<section class="section section-3">
+  <h2>La solución: <span class="highlight">tu vendedor trabajando 24/7</span></h2>
+  <p class="sub">No es un sitio web genérico. Es tu negocio contado de forma que convierte visitantes en clientes.</p>
+  <div class="solucion-grid">
+    <div class="solucion-card">
+      <span class="solucion-icon">⚡</span>
+      <div class="solucion-titulo">Storytelling Rosa Morel</div>
+      <div class="solucion-desc">Convertimos tu fortaleza real en un relato emocional que genera confianza y vende.</div>
+    </div>
+    <div class="solucion-card">
+      <span class="solucion-icon">🎯</span>
+      <div class="solucion-titulo">Especializado en tu nicho</div>
+      <div class="solucion-desc">Conocemos qué buscan tus clientes y cómo hablarles. Ferreterías, veterinarias, estética, salud.</div>
+    </div>
+    <div class="solucion-card">
+      <span class="solucion-icon">📱</span>
+      <div class="solucion-titulo">100% Responsive</div>
+      <div class="solucion-desc">Funciona perfectamente en móvil, tablet y PC. El 80% te busca desde el celular.</div>
+    </div>
+    <div class="solucion-card">
+      <span class="solucion-icon">🚀</span>
+      <div class="solucion-titulo">Rápido y eficiente</div>
+      <div class="solucion-desc">Listo en 3–5 días. Dominio, hosting y SSL incluidos. Sin complicaciones.</div>
+    </div>
+    <div class="solucion-card">
+      <span class="solucion-icon">💬</span>
+      <div class="solucion-titulo">WhatsApp integrado</div>
+      <div class="solucion-desc">Botón flotante para contacto directo. Facilitas la conversión inmediata.</div>
+    </div>
+    <div class="solucion-card">
+      <span class="solucion-icon">✅</span>
+      <div class="solucion-titulo">SEO incluido</div>
+      <div class="solucion-desc">Optimización para que Google te encuentre cuando buscan tu servicio.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN 4 — NUESTRA FORTALEZA -->
+<section class="section section-4">
+  <h2>Nuestra <span class="highlight">fortaleza</span></h2>
+  <div class="fortaleza-box">
+    <p>No creamos páginas genéricas. Cada landing page nace de entender tu negocio: esos años de experiencia atendiendo clientes, ese inventario completo que siempre tienes, esa atención personalizada que te diferencia.</p>
+    <p>Porque un negocio no se vende con fotos bonitas. Se vende mostrando que cuando alguien necesita lo que ofreces, encuentra en ti exactamente la experiencia y confianza que busca.</p>
+  </div>
+</section>
+
+<!-- SECCIÓN 5 — PLANES -->
+<section class="section section-5">
+  <h2>Elige tu <span class="highlight">plan</span></h2>
+  <p class="sub">Todos incluyen dominio, hosting y SSL. Sin sorpresas.</p>
+  <div class="planes-grid">
+
+    <div class="plan-card">
+      <div class="plan-nombre">Esencial</div>
+      <div class="plan-precio">$790.000</div>
+      <div class="plan-sub">Pago inicial único</div>
+      <div class="plan-mensualidad">Mensualidad: $150.000/mes</div>
+      <div class="plan-promo">🎁 Primer mes de mensualidad GRATIS</div>
+      <ul class="plan-features">
+        <li>Hero + storytelling fortaleza</li>
+        <li>Servicios destacados (4)</li>
+        <li>Galería fotos (6)</li>
+        <li>Formulario contacto</li>
+        <li>WhatsApp flotante</li>
+        <li>Horarios + mapa</li>
+        <li>Diseño responsive</li>
+        <li>1 revisión/año</li>
+      </ul>
+      <button class="plan-btn outline" onclick="solicitarPlan('Esencial')">Solicitar Esencial</button>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-nombre">Profesional</div>
+      <div class="plan-precio">$1.090.000</div>
+      <div class="plan-sub">Pago inicial único</div>
+      <div class="plan-mensualidad">Mensualidad: $230.000/mes</div>
+      <div class="plan-promo">🎁 Primer mes de mensualidad GRATIS</div>
+      <ul class="plan-features">
+        <li>Todo lo de Esencial +</li>
+        <li>Testimonios (3)</li>
+        <li>Ofertas especiales (2)</li>
+        <li>Badges confianza</li>
+        <li>SEO optimizado</li>
+        <li>2 revisiones/año</li>
+      </ul>
+      <button class="plan-btn" onclick="solicitarPlan('Profesional')">Solicitar Profesional</button>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-nombre">Premium</div>
+      <div class="plan-precio">$1.490.000</div>
+      <div class="plan-sub">Pago inicial único</div>
+      <div class="plan-mensualidad">Mensualidad: $310.000/mes</div>
+      <div class="plan-promo">🎁 Primer mes de mensualidad GRATIS</div>
+      <ul class="plan-features">
+        <li>Todo lo de Profesional +</li>
+        <li>Diseño premium personalizado</li>
+        <li>Sistema citas online</li>
+        <li>Chat en vivo</li>
+        <li>Catálogo con precios</li>
+        <li>Blog (3 artículos)</li>
+        <li>3 revisiones/año</li>
+      </ul>
+      <button class="plan-btn outline" onclick="solicitarPlan('Premium')">Solicitar Premium</button>
+    </div>
+
+  </div>
+
+  <!-- INVERSIÓN COMPLETA -->
+  <div class="inversion-grid">
+    <div class="inversion-card">
+      <div class="inversion-titulo">Entrada Inicial</div>
+      <div class="inversion-valor">$790.000 – $1.490.000</div>
+      <div class="inversion-desc">Dominio, hosting, SSL y desarrollo completo</div>
+    </div>
+    <div class="inversion-card">
+      <div class="inversion-titulo">Mensualidad</div>
+      <div class="inversion-valor">$150.000 – $310.000</div>
+      <div class="inversion-desc">Mantenimiento, backups y correcciones</div>
+      <div class="inversion-promo">🎁 Primer mes GRATIS con la promo</div>
+    </div>
+    <div class="inversion-card">
+      <div class="inversion-titulo">Renovación Anual</div>
+      <div class="inversion-valor">$95.000 – $210.000</div>
+      <div class="inversion-desc">Dominio, SSL y hospedaje anual</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- SECCIÓN 6 — PROMO MES DEL PADRE -->
+<section class="section section-6">
+  <h2>🎁 Promo Especial<br>Mes del Padre 2026</h2>
+  <p class="sub">Solo para los primeros 20 compradores del mes.<br>Un regalo que genera ingresos reales.</p>
+  <div class="cupos-badge">⏳ Solo 20 cupos disponibles</div>
+  <div class="promo-box">
+    <div class="promo-title">¿Qué incluye la promo?</div>
+    <ul class="promo-items">
+      <li><span class="icon">✅</span><span>Tu landing page profesional lista en 3–5 días</span></li>
+      <li><span class="icon">🆓</span><span>El <strong>primer mes de cuota de sostenimiento GRATIS</strong> — aplica a todos los planes</span></li>
+      <li><span class="icon">🔒</span><span>Dominio + Hosting + SSL incluidos desde el inicio</span></li>
+      <li><span class="icon">📱</span><span>Diseño 100% optimizado para celular</span></li>
+      <li><span class="icon">🎯</span><span>Diseñada específicamente para tu tipo de negocio</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECCIÓN 7 — CTA -->
+<section class="section section-7">
+  <h2>¿Para qué tipo de negocio es <span class="highlight">tu landing</span>?</h2>
+
+  <div class="nicho-grid">
+    <button class="nicho-btn" onclick="selectNicho(this, 'Ferretería')"><span class="nicho-icon">🔧</span> Ferretería</button>
+    <button class="nicho-btn" onclick="selectNicho(this, 'Veterinaria')"><span class="nicho-icon">🐾</span> Veterinaria</button>
+    <button class="nicho-btn" onclick="selectNicho(this, 'Salud / Clínica')"><span class="nicho-icon">🏥</span> Salud / Clínica</button>
+    <button class="nicho-btn" onclick="selectNicho(this, 'Estética & Spa')"><span class="nicho-icon">✨</span> Estética & Spa</button>
+  </div>
+
+  <div class="plan-select-grid">
+    <button class="plan-select-btn" onclick="selectPlan(this, 'Esencial')">Esencial</button>
+    <button class="plan-select-btn" onclick="selectPlan(this, 'Profesional')">Profesional</button>
+    <button class="plan-select-btn" onclick="selectPlan(this, 'Premium')">Premium</button>
+  </div>
+
+  <div class="form-box">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" id="fNombre" placeholder="Tu nombre completo">
+      </div>
+      <div class="form-group">
+        <label>WhatsApp:</label>
+        <input type="tel" id="fWhatsapp" placeholder="Ej: 3001234567">
+      </div>
+      <div class="form-group">
+        <label>Ciudad:</label>
+        <input type="text" id="fCiudad" placeholder="Tu ciudad">
+      </div>
+      <div class="form-group form-submit">
+        <button class="enviar-btn" onclick="enviarFormulario()">Enviar formulario</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="urgency">⏳ CUPOS LIMITADOS — ASEGURA EL TUYO AHORA</div>
+
+  <button class="cta-button" onclick="solicitarPromo()">🎁 Quiero mi Primer Mes GRATIS</button>
+
+  <div class="success-msg" id="successMsg">✅ ¡Cupo solicitado! Te contactaremos en menos de 24 horas.</div>
+
+  <div class="footer">
+    <div class="footer-logo">Presencia<span>YA</span></div>
+    <div class="footer-info">
+      Enrique Escobar Tobón · Pereira, Colombia<br>
+      📱 <a href="tel:+573123901477">+57 312 390 1477</a> · <a href="mailto:presenciaya.col@gmail.com">presenciaya.col@gmail.com</a><br>
+      © 2026 PresenciaYA · Todos los derechos reservados
+    </div>
+  </div>
+</section>
+
+<script>
+let nichoSeleccionado = '';
+let planSeleccionado = '';
+
+function selectNicho(btn, nicho) {
+  document.querySelectorAll('.nicho-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  nichoSeleccionado = nicho;
+}
+
+function selectPlan(btn, plan) {
+  document.querySelectorAll('.plan-select-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  planSeleccionado = plan;
+}
+
+function enviarFormulario() {
+  const nombre = document.getElementById('fNombre').value.trim();
+  const whatsapp = document.getElementById('fWhatsapp').value.trim();
+  const ciudad = document.getElementById('fCiudad').value.trim();
+  if (!nombre || !whatsapp || !ciudad) { alert('Por favor completa todos los campos.'); return; }
+  const msg = `Hola PresenciaYA, me interesa la Promo Mes del Padre 2026.
+
+Nombre: ${nombre}
+WhatsApp: ${whatsapp}
+Ciudad: ${ciudad}
+Nicho: ${nichoSeleccionado || 'Por definir'}
+Plan: ${planSeleccionado || 'Por definir'}`;
+  window.open(`https://wa.me/573123901477?text=${encodeURIComponent(msg)}`, '_blank');
+  document.getElementById('successMsg').style.display = 'block';
+}
+
+function solicitarPromo() {
+  const nombre = document.getElementById('fNombre').value.trim();
+  const nicho = nichoSeleccionado ? ` Nicho: ${nichoSeleccionado}.` : '';
+  const plan = planSeleccionado ? ` Plan: ${planSeleccionado}.` : '';
+  const nombreTxt = nombre ? ` Soy ${nombre}.` : '';
+  const msg = `Hola, quiero la Promo Mes del Padre 2026 de PresenciaYA.${nombreTxt}${nicho}${plan} ¿Quedan cupos disponibles?`;
+  window.open(`https://wa.me/573123901477?text=${encodeURIComponent(msg)}`, '_blank');
+  document.getElementById('successMsg').style.display = 'block';
+}
+</script>
+</body>
+</html>
