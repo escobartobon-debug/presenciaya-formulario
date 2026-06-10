@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FerrePro Pereira | Ferretería Industrial y Materiales de Construcción</title>
+    <meta name="description" content="FerrePro: Ferretería industrial en Pereira. 20 años proveyendo obras grandes, crédito corporativo, asesoría técnica y catálogo online completo.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --color-primary: #C62828;
+            --color-secondary: #B71C1C;
+            --color-accent: #E53935;
+            --color-dark: #0f0f0f;
+            --color-darker: #1a1a1a;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--color-dark);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+        
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--color-primary); }
+        
+        .header-cta {
+            background: var(--color-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #C62828 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(198,40,40,0.2) 0%, transparent 70%);
+            top: -300px;
+            right: -300px;
+            border-radius: 50%;
+        }
+        
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content { max-width: 800px; }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #ffffff, var(--color-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 3rem;
+        }
+        
+        .badges {
+            display: flex;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .badge-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            display: block;
+        }
+        
+        .badge-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .cta-primary {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 40px rgba(198,40,40,0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-primary:hover { transform: translateY(-5px); }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title span { color: var(--color-primary); }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .fortaleza-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            padding: 5rem 2rem;
+            color: white;
+        }
+        
+        .fortaleza-box {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .fortaleza-box h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+        
+        .fortaleza-box p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .fortaleza-box strong { font-weight: 800; }
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .servicio-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .servicio-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-primary);
+            box-shadow: 0 20px 60px rgba(198,40,40,0.2);
+        }
+        
+        .servicio-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .servicio-titulo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        .servicio-desc {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+        
+        .paquetes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .paquete-card {
+            background: rgba(198,40,40,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--color-primary);
+            position: relative;
+        }
+        
+        .paquete-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+        
+        .paquete-titulo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .paquete-desc {
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonio-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .testimonio-texto {
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .testimonio-autor {
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .galeria-item {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, rgba(198,40,40,0.2) 0%, rgba(183,28,28,0.1) 100%);
+            border-radius: 15px;
+            border: 1px solid rgba(198,40,40,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .galeria-item::before {
+            content: '⚙️';
+            font-size: 4rem;
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .galeria-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 600;
+            z-index: 1;
+            margin-top: 5rem;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-primary);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(198,40,40,0.3) 0%, rgba(183,28,28,0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+        }
+        
+        .blog-image::before {
+            content: '📰';
+            font-size: 4rem;
+            opacity: 0.4;
+        }
+        
+        .blog-content { padding: 2rem; }
+        
+        .blog-date {
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-titulo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-excerpt {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+        
+        .formulario-section {
+            background: var(--color-darker);
+            padding: 5rem 2rem;
+        }
+        
+        .formulario-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group { margin-bottom: 1.5rem; }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--color-primary);
+            color: white;
+            padding: 1.25rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .ubicacion-section { padding: 5rem 2rem; }
+        
+        .ubicacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .info-box {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .info-box h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .info-box p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+        
+        footer {
+            background: var(--color-dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        footer p {
+            color: rgba(255,255,255,0.5);
+            margin: 0.5rem 0;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">FerrePro</div>
+            <nav>
+                <a href="#servicios">Servicios</a>
+                <a href="#blog">Blog</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <a href="#contacto" class="header-cta">Cotizar Proyecto</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Ferretería industrial que provee obras grandes</h1>
+                <p class="hero-subtitle">
+                    20 años surtiendo constructoras y contratistas en Pereira. Crédito corporativo hasta 60 días, 
+                    entregas en obra, catálogo online y asesoría técnica especializada.
+                </p>
+                
+                <div class="badges">
+                    <div class="badge">
+                        <span class="badge-number">20 años</span>
+                        <span class="badge-label">Experiencia</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-number">60 días</span>
+                        <span class="badge-label">Crédito corporativo</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-number">Catálogo</span>
+                        <span class="badge-label">Online completo</span>
+                    </div>
+                </div>
+                
+                <a href="#contacto" class="cta-primary">Solicitar Cotización</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="fortaleza-section">
+        <div class="fortaleza-box">
+            <h2>NUESTRA FORTALEZA</h2>
+            
+            <p>
+                Sé lo que se siente.<br>
+                Arrancar una obra grande y que el proveedor no pueda surtir todo.<br>
+                Perder tiempo cotizando con 5 ferreterías diferentes.<br>
+                Que los materiales lleguen tarde y paren tu obra.
+            </p>
+            
+            <p>
+                <strong>Por eso FerrePro está diseñada para obras industriales.</strong>
+            </p>
+            
+            <p>
+                Surtimos proyectos completos: desde cimientos hasta acabados.<br>
+                Entregas programadas en obra para que no pares.<br>
+                Y un equipo técnico que cotiza contigo material por material.
+            </p>
+            
+            <p>
+                <strong>Porque las obras grandes necesitan un proveedor que esté a la altura.</strong>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="servicios">
+        <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+        <p class="section-subtitle">
+            Soluciones integrales para proyectos industriales
+        </p>
+        
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <div class="servicio-icon">🏗️</div>
+                <h3 class="servicio-titulo">Suministro Integral</h3>
+                <p class="servicio-desc">
+                    Proveemos obras completas. Desde estructura hasta acabados. Un solo proveedor, un solo contacto.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <div class="servicio-icon">📋</div>
+                <h3 class="servicio-titulo">Cotización Técnica</h3>
+                <p class="servicio-desc">
+                    Revisamos planos y presupuestos. Te cotizamos material por material con especificaciones técnicas.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <div class="servicio-icon">🚚</div>
+                <h3 class="servicio-titulo">Entrega en Obra</h3>
+                <p class="servicio-desc">
+                    Entregas programadas directo en obra. Por etapas. Justo cuando lo necesitas para no parar.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <div class="servicio-icon">💳</div>
+                <h3 class="servicio-titulo">Crédito Corporativo</h3>
+                <p class="servicio-desc">
+                    Hasta 60 días para contratistas y constructoras. Cupos desde $5.000.000 según historial.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <div class="servicio-icon">📱</div>
+                <h3 class="servicio-titulo">Catálogo Online</h3>
+                <p class="servicio-desc">
+                    Consulta precios y disponibilidad 24/7. Descarga fichas técnicas. Haz pedidos desde tu oficina.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <div class="servicio-icon">👷</div>
+                <h3 class="servicio-titulo">Asesoría Técnica</h3>
+                <p class="servicio-desc">
+                    Ingenieros que te asesoran en especificaciones, cantidades y alternativas según tu presupuesto.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--color-darker);">
+        <h2 class="section-title">Paquetes <span>Corporativos</span></h2>
+        <p class="section-subtitle">
+            Planes diseñados para contratistas y constructoras
+        </p>
+        
+        <div class="paquetes-grid">
+            <div class="paquete-card">
+                <div class="paquete-badge">🏆 CORPORATIVO</div>
+                <h3 class="paquete-titulo">Plan Contratista</h3>
+                <p class="paquete-desc">
+                    Crédito 30 días + Descuento por volumen + Entrega programada + Catálogo online + Asesoría técnica. 
+                    Para constructoras con 3+ proyectos al año.
+                </p>
+            </div>
+            
+            <div class="paquete-card">
+                <div class="paquete-badge">⚡ INDUSTRIAL</div>
+                <h3 class="paquete-titulo">Plan Obra Grande</h3>
+                <p class="paquete-desc">
+                    Crédito 60 días + Precio especial por proyecto + Entregas por etapa + Ingeniero dedicado + 
+                    Bodegaje en obra. Para proyectos desde $50M.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Lo que dicen <span>nuestros clientes</span></h2>
+        
+        <div class="testimonios-grid">
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "Llevamos 5 años trabajando con FerrePro. Nos surten 3 obras al tiempo. El crédito corporativo 
+                    nos permite mantener flujo sin parar proyectos."
+                </p>
+                <p class="testimonio-autor">— Constructora Andina SAS</p>
+            </div>
+            
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "Lo que más valoramos es que cumplen con las entregas. Material correcto, en el momento exacto. 
+                    Eso para nosotros es oro."
+                </p>
+                <p class="testimonio-autor">— Ingeniería y Construcciones del Eje</p>
+            </div>
+            
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "El equipo técnico revisa nuestros planos y nos ayuda a optimizar presupuestos sin sacrificar calidad. 
+                    Son socios estratégicos."
+                </p>
+                <p class="testimonio-autor">— Desarrollos Urbanos Pereira</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Nuestras <span>Instalaciones</span></h2>
+        <p class="section-subtitle">
+            Bodega industrial con inventario para obras grandes
+        </p>
+        
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <div class="galeria-label">Fachada industrial</div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-label">Bodega principal</div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-label">Área de carga</div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-label">Zona de herramientas</div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-label">Oficinas técnicas</div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-label">Flota de domicilios</div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-label">Sala de juntas</div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-label">Atención corporativa</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="blog" style="background: var(--color-darker);">
+        <h2 class="section-title">Blog <span>Técnico</span></h2>
+        <p class="section-subtitle">
+            Recursos y guías para profesionales de la construcción
+        </p>
+        
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-image"></div>
+                <div class="blog-content">
+                    <div class="blog-date">20 Mayo 2025</div>
+                    <h3 class="blog-titulo">Cómo optimizar presupuestos en obra negra</h3>
+                    <p class="blog-excerpt">
+                        Estrategias para reducir costos en estructura sin comprometer calidad ni tiempos de entrega.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image"></div>
+                <div class="blog-content">
+                    <div class="blog-date">15 Mayo 2025</div>
+                    <h3 class="blog-titulo">Materiales industriales: guía de especificaciones</h3>
+                    <p class="blog-excerpt">
+                        Comparativa técnica de materiales para proyectos grandes: resistencia, durabilidad y costo-beneficio.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image"></div>
+                <div class="blog-content">
+                    <div class="blog-date">10 Mayo 2025</div>
+                    <h3 class="blog-titulo">Logística de obra: entregas programadas</h3>
+                    <p class="blog-excerpt">
+                        Por qué las entregas Just-in-Time mejoran flujo de caja y reducen desperdicios en obras grandes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="formulario-section" id="contacto">
+        <div class="formulario-container">
+            <h2 class="section-title">Solicita tu <span>Cotización</span></h2>
+            <p class="section-subtitle">
+                Un ingeniero revisará tu proyecto y te responderá en 24 horas
+            </p>
+            
+            <form>
+                <div class="form-group">
+                    <label>Empresa / Nombre *</label>
+                    <input type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>WhatsApp *</label>
+                    <input type="tel" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email corporativo</label>
+                    <input type="email">
+                </div>
+                
+                <div class="form-group">
+                    <label>Tipo de proyecto *</label>
+                    <select required>
+                        <option>Obra nueva</option>
+                        <option>Remodelación industrial</option>
+                        <option>Mantenimiento locativo</option>
+                        <option>Ampliación</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Descripción del proyecto</label>
+                    <textarea placeholder="Metros cuadrados, pisos, especificaciones técnicas..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">Enviar Cotización</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="ubicacion-section">
+        <h2 class="section-title">Ubicación y <span>Horarios</span></h2>
+        
+        <div class="ubicacion-grid">
+            <div class="info-box">
+                <h3>📍 Dirección</h3>
+                <p>
+                    Pereira, Risaralda<br>
+                    Colombia
+                </p>
+            </div>
+            
+            <div class="info-box">
+                <h3>⏰ Horarios</h3>
+                <p>
+                    Lunes a Viernes<br>
+                    6:00 AM - 6:00 PM<br>
+                    <br>
+                    Sábados<br>
+                    6:00 AM - 4:00 PM<br>
+                    <br>
+                    Atención corporativa con cita previa
+                </p>
+            </div>
+            
+            <div class="info-box">
+                <h3>📞 Contacto</h3>
+                <p>
+                    WhatsApp: +57 321 458 9732<br>
+                    Email: ventas@ferrepro.co<br>
+                    Crédito corporativo disponible<br>
+                    Catálogo online 24/7
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>FerrePro</strong> - Ferretería Industrial</p>
+        <p>20 años proveyendo obras grandes en Pereira</p>
+        <p>Pereira, Risaralda · Colombia</p>
+        <p>WhatsApp: +57 321 458 9732 · ventas@ferrepro.co</p>
+        <p style="margin-top: 2rem; font-size: 0.85rem;">Página creada por <strong style="color: #C62828;">PresenciaYA</strong></p>
+    </footer>
+
+    <a href="https://wa.me/573214589732" class="whatsapp-float" target="_blank">💬</a>
+</body>
+</html>

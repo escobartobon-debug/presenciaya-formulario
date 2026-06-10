@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Natura Spa | Belleza Natural con Ingredientes Colombianos - Pereira</title>
+    <meta name="description" content="Bella Natura Spa: Tratamientos faciales y corporales con ingredientes naturales colombianos. Café, aguacate, arcilla. Belleza que viene de nuestra tierra.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --color-primary: #8D6E63;
+            --color-secondary: #6D4C41;
+            --color-accent: #A1887F;
+            --color-dark: #0f0f0f;
+            --color-darker: #1a1a1a;
+        }
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            background: var(--color-dark);
+            color: #ffffff;
+            line-height: 1.8;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-style: italic;
+        }
+        
+        .header-cta {
+            background: var(--color-primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #8D6E63 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(141,110,99,0.2) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #ffffff, var(--color-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.6rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+            font-style: italic;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .badge-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+            font-style: italic;
+        }
+        
+        .badge-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+        
+        .cta-primary {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 1.3rem 3.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 40px rgba(141,110,99,0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-primary:hover { transform: translateY(-5px); }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .section-title span { color: var(--color-primary); }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+            font-style: italic;
+        }
+        
+        .fortaleza-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            padding: 5rem 2rem;
+            color: white;
+        }
+        
+        .fortaleza-box {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .fortaleza-box h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .fortaleza-box p {
+            font-size: 1.4rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+        
+        .fortaleza-box strong { font-weight: 700; }
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .servicio-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .servicio-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-primary);
+            box-shadow: 0 20px 60px rgba(141,110,99,0.2);
+        }
+        
+        .servicio-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .servicio-titulo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+            font-style: italic;
+        }
+        
+        .servicio-desc {
+            color: rgba(255,255,255,0.75);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+        
+        .ofertas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .oferta-card {
+            background: rgba(141,110,99,0.1);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 2px solid var(--color-primary);
+            position: relative;
+        }
+        
+        .oferta-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-primary);
+            color: white;
+            padding: 0.5rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .oferta-titulo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .oferta-desc {
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+        
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonio-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .testimonio-texto {
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+        
+        .testimonio-autor {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .galeria-item {
+            aspect-ratio: 4/3;
+            border-radius: 20px;
+            border: 2px solid rgba(141,110,99,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .galeria-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+            box-shadow: 0 15px 40px rgba(141,110,99,0.3);
+        }
+        
+        .galeria-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        
+        .galeria-icon {
+            font-size: 5.5rem;
+            z-index: 1;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+        }
+        
+        .galeria-label {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.95);
+            font-weight: 600;
+            z-index: 1;
+            text-align: center;
+            padding: 0 1rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            font-style: italic;
+        }
+        
+        .formulario-section {
+            background: var(--color-darker);
+            padding: 5rem 2rem;
+        }
+        
+        .formulario-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group { margin-bottom: 1.5rem; }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1.1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--color-primary);
+            color: white;
+            padding: 1.3rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .ubicacion-section { padding: 5rem 2rem; }
+        
+        .ubicacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .info-box {
+            background: rgba(255,255,255,0.05);
+            padding: 2.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .info-box h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .info-box p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: var(--color-dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        footer p {
+            color: rgba(255,255,255,0.5);
+            margin: 0.5rem 0;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .section-title { font-size: 2.5rem; }
+            .badges { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Bella Natura</div>
+            <a href="#contacto" class="header-cta">Agendar Cita</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>La belleza que viene de nuestra tierra</h1>
+            <p class="hero-subtitle">
+                Spa con tratamientos faciales y corporales usando ingredientes naturales colombianos. 
+                Café, aguacate, arcilla amazónica. Belleza auténtica desde nuestras raíces.
+            </p>
+            
+            <div class="badges">
+                <div class="badge">
+                    <span class="badge-number">100%</span>
+                    <span class="badge-label">Natural</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-number">Colombiano</span>
+                    <span class="badge-label">Ingredientes locales</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-number">8 años</span>
+                    <span class="badge-label">Experiencia</span>
+                </div>
+            </div>
+            
+            <a href="#contacto" class="cta-primary">Reservar Sesión</a>
+        </div>
+    </section>
+
+    <section class="fortaleza-section">
+        <div class="fortaleza-box">
+            <h2>NUESTRA FORTALEZA</h2>
+            
+            <p>
+                Sé lo que se siente.<br>
+                Usar productos llenos de químicos que irritan tu piel.<br>
+                Buscar tratamientos naturales y que sean importados carísimos.<br>
+                No saber qué le están poniendo realmente a tu rostro.
+            </p>
+            
+            <p>
+                <strong>Por eso Bella Natura trabaja con lo nuestro.</strong>
+            </p>
+            
+            <p>
+                Café del Eje Cafetero para exfoliar.<br>
+                Aguacate Hass colombiano para hidratar profundo.<br>
+                Arcilla del Amazonas para purificar.<br>
+                Todo natural. Todo de aquí.
+            </p>
+            
+            <p>
+                <strong>Porque la mejor belleza viene de nuestra propia tierra.</strong>
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Nuestros <span>Tratamientos</span></h2>
+        <p class="section-subtitle">
+            Rituales de belleza con ingredientes colombianos
+        </p>
+        
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <div class="servicio-icon">☕</div>
+                <h3 class="servicio-titulo">Exfoliación Café Colombiano</h3>
+                <p class="servicio-desc">
+                    Peeling corporal con café del Eje Cafetero. Elimina células muertas y activa circulación.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <div class="servicio-icon">🥑</div>
+                <h3 class="servicio-titulo">Hidratación Aguacate Hass</h3>
+                <p class="servicio-desc">
+                    Mascarilla facial con aguacate colombiano. Hidratación profunda para piel seca y maltratada.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <div class="servicio-icon">🌿</div>
+                <h3 class="servicio-titulo">Purificación Arcilla Amazónica</h3>
+                <p class="servicio-desc">
+                    Mascarilla con arcilla del Amazonas. Purifica poros, controla grasa y desintoxica la piel.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <div class="servicio-icon">🌺</div>
+                <h3 class="servicio-titulo">Masaje Aceites Esenciales</h3>
+                <p class="servicio-desc">
+                    Relajación con aceites de plantas colombianas. Eucalipto, menta y lavanda de nuestras montañas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--color-darker);">
+        <h2 class="section-title">Paquetes <span>Especiales</span></h2>
+        <p class="section-subtitle">
+            Rituales completos para cuidado integral
+        </p>
+        
+        <div class="ofertas-grid">
+            <div class="oferta-card">
+                <div class="oferta-badge">🌿 POPULAR</div>
+                <h3 class="oferta-titulo">Ritual Cafetera</h3>
+                <p class="oferta-desc">
+                    Exfoliación café + Hidratación aguacate + Masaje relajante. 
+                    2 horas de puro cuidado natural. $180.000
+                </p>
+            </div>
+            
+            <div class="oferta-card">
+                <div class="oferta-badge">✨ COMPLETO</div>
+                <h3 class="oferta-titulo">Ritual Amazónico</h3>
+                <p class="oferta-desc">
+                    Limpieza profunda + Arcilla purificante + Hidratación + Masaje corporal. 
+                    Desintoxicación total. $250.000
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Lo que dicen <span>nuestras clientas</span></h2>
+        
+        <div class="testimonios-grid">
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "Por fin un spa que usa ingredientes reales y naturales. Mi piel nunca había estado 
+                    tan suave después de la exfoliación con café."
+                </p>
+                <p class="testimonio-autor">— Carolina, 34 años</p>
+            </div>
+            
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "Me encanta saber exactamente qué me ponen. Todo huele delicioso y los resultados 
+                    son visibles desde la primera sesión."
+                </p>
+                <p class="testimonio-autor">— Andrea, 41 años</p>
+            </div>
+            
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "El ritual cafetera es mi favorito. Sales relajada, con la piel renovada y con ese 
+                    aroma a café que me encanta."
+                </p>
+                <p class="testimonio-autor">— María José, 29 años</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Nuestro <span>Spa</span></h2>
+        <p class="section-subtitle">
+            Un santuario de paz con esencia colombiana
+        </p>
+        
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(141,110,99,0.4), rgba(109,76,65,0.2)), 
+                     radial-gradient(circle at 30% 50%, rgba(161,136,127,0.35), transparent 65%);"></div>
+                <div class="galeria-icon">🌿</div>
+                <div class="galeria-label">Sala de tratamientos faciales</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(109,76,65,0.4), rgba(141,110,99,0.2)),
+                     radial-gradient(circle at 70% 40%, rgba(161,136,127,0.35), transparent 65%);"></div>
+                <div class="galeria-icon">💆</div>
+                <div class="galeria-label">Cabinas de masaje</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(141,110,99,0.3), rgba(161,136,127,0.2)),
+                     radial-gradient(circle at 50% 30%, rgba(109,76,65,0.35), transparent 65%);"></div>
+                <div class="galeria-icon">☕</div>
+                <div class="galeria-label">Área de preparación natural</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(161,136,127,0.4), rgba(141,110,99,0.2)),
+                     radial-gradient(circle at 40% 60%, rgba(109,76,65,0.35), transparent 65%);"></div>
+                <div class="galeria-icon">🛁</div>
+                <div class="galeria-label">Zona de hidroterapia</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(109,76,65,0.3), rgba(141,110,99,0.2)),
+                     radial-gradient(circle at 60% 50%, rgba(161,136,127,0.35), transparent 65%);"></div>
+                <div class="galeria-icon">🧘</div>
+                <div class="galeria-label">Sala de relajación</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(141,110,99,0.4), rgba(161,136,127,0.2)),
+                     radial-gradient(circle at 30% 40%, rgba(109,76,65,0.35), transparent 65%);"></div>
+                <div class="galeria-icon">🌸</div>
+                <div class="galeria-label">Recepción natural</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="formulario-section" id="contacto">
+        <div class="formulario-container">
+            <h2 class="section-title">Agenda tu <span>Ritual</span></h2>
+            <p class="section-subtitle">
+                Completa el formulario y te confirmamos disponibilidad
+            </p>
+            
+            <form>
+                <div class="form-group">
+                    <label>Tu nombre *</label>
+                    <input type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>WhatsApp *</label>
+                    <input type="tel" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tratamiento de interés</label>
+                    <select>
+                        <option>Ritual Cafetera</option>
+                        <option>Ritual Amazónico</option>
+                        <option>Exfoliación Café</option>
+                        <option>Hidratación Aguacate</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">Reservar Sesión</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="ubicacion-section">
+        <h2 class="section-title">Ubicación y <span>Horarios</span></h2>
+        
+        <div class="ubicacion-grid">
+            <div class="info-box">
+                <h3>📍 Dirección</h3>
+                <p>
+                    Pereira, Risaralda<br>
+                    Colombia
+                </p>
+            </div>
+            
+            <div class="info-box">
+                <h3>⏰ Horarios</h3>
+                <p>
+                    Martes a Sábado<br>
+                    10:00 AM - 7:00 PM<br>
+                    <br>
+                    Domingos y lunes<br>
+                    Cerrado
+                </p>
+            </div>
+            
+            <div class="info-box">
+                <h3>📞 Contacto</h3>
+                <p>
+                    WhatsApp: +57 318 572 9461<br>
+                    100% ingredientes naturales<br>
+                    Productos colombianos
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Bella Natura Spa</strong> - Belleza Natural Colombiana</p>
+        <p>La belleza que viene de nuestra tierra</p>
+        <p>Pereira, Risaralda · Colombia</p>
+        <p>WhatsApp: +57 318 572 9461</p>
+        <p style="margin-top: 2rem; font-size: 0.85rem;">Página creada por <strong style="color: #8D6E63;">PresenciaYA</strong></p>
+    </footer>
+
+    <a href="https://wa.me/573185729461" class="whatsapp-float" target="_blank">💬</a>
+</body>
+</html>
