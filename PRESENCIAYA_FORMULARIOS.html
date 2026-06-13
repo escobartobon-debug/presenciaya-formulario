@@ -387,9 +387,15 @@
     </div>
 </div>
 
+
+    <div style="text-align:center; padding: 10px 20px 0; background: var(--navy);">
+        <p style="font-size:0.85rem; color:var(--naranja); font-style:italic; letter-spacing:0.5px; font-family:'Archivo',sans-serif;">
+            Tu página atrae. Tus agentes convierten. Juntos, tu negocio trabaja solo.
+        </p>
+    </div>
 <div class="tabs">
-    <div class="tab active" onclick="showTab('ferreteria', this)">🔧 Ferretería</div>
-    <div class="tab" onclick="showTab('veterinaria', this)">🐾 Veterinaria</div>
+    
+    <div class="tab active" onclick="showTab('veterinaria', this)">🐾 Veterinaria</div>
     <div class="tab" onclick="showTab('salud', this)">🏥 Salud</div>
     <div class="tab" onclick="showTab('estetica', this)">💆 Estética / Spa</div>
 </div>
@@ -399,154 +405,12 @@
     <!-- ══════════════════════════════════════════════════════════
          FERRETERÍA
     ══════════════════════════════════════════════════════════ -->
-    <div class="form-panel active" id="form-ferreteria">
-
-        <div class="form-hero">
-            <div class="nicho-badge">🔧 FERRETERÍA</div>
-            <h1>Tu ferretería tiene todo lo que el cliente necesita.<br><em>Ahora que te encuentre.</em></h1>
-            <p>Cuéntanos cómo es tu negocio — con esta información construimos una página que convierte visitantes en compradores. Tómate 5 minutos. Vale la pena.</p>
-        </div>
-
-        <div class="form-section">
-            <div class="section-title"><span class="num">1</span> Datos del negocio</div>
-            <div class="section-hint">Lo básico para que tu cliente sepa dónde encontrarte y confíe en ti desde el primer segundo.</div>
-
-            <div class="field-row">
-                <div class="field-group">
-                    <label class="field-label">Nombre de la ferretería *</label>
-                    <input type="text" placeholder="Ej: Ferretería El Maestro">
-                </div>
-                <div class="field-group">
-                    <label class="field-label">¿Cuántos años llevan abiertos? *</label>
-                    <input type="text" placeholder="Ej: 12 años">
-                </div>
-            </div>
-
-            <div class="field-row">
-                <div class="field-group">
-                    <label class="field-label">Ciudad y barrio *</label>
-                    <input type="text" placeholder="Ej: Pereira, La Circunvalar">
-                </div>
-                <div class="field-group">
-                    <label class="field-label">Dirección exacta *</label>
-                    <input type="text" placeholder="Ej: Cra 8 # 24-15">
-                </div>
-            </div>
-
-            <div class="field-row">
-                <div class="field-group">
-                    <label class="field-label">WhatsApp del negocio *</label>
-                    <input type="tel" placeholder="3XXXXXXXXX">
-                </div>
-                <div class="field-group">
-                    <label class="field-label">Horario de atención *</label>
-                    <input type="text" placeholder="Ej: Lun–Sáb 7am–6pm">
-                </div>
-            </div>
-        </div>
-
-        <div class="form-section">
-            <div class="section-title"><span class="num">2</span> Lo que te hace diferente</div>
-            <div class="section-hint">Esto es lo más importante del formulario. No hay respuesta incorrecta — hay respuestas que venden más que otras.</div>
-
-            <div class="field-group">
-                <label class="field-label">¿Qué tiene tu ferretería que la competencia no tiene? *</label>
-                <textarea placeholder="Ej: Llevamos 20 años en el barrio, conocemos a nuestros clientes por nombre. Tenemos el inventario más completo de la zona y asesoramos en obra sin cobrar de más..."></textarea>
-            </div>
-
-            <div class="field-group">
-                <label class="field-label">¿A quién le vendes principalmente?</label>
-                <div class="options-grid cols-3">
-                    <label class="option-item"><input type="checkbox"> <span class="option-icon">🏠</span> Propietarios de casa</label>
-                    <label class="option-item"><input type="checkbox"> <span class="option-icon">👷</span> Maestros y contratistas</label>
-                    <label class="option-item"><input type="checkbox"> <span class="option-icon">🏢</span> Empresas y conjuntos</label>
-                    <label class="option-item"><input type="checkbox"> <span class="option-icon">🔨</span> Talleres y oficios</label>
-                    <label class="option-item"><input type="checkbox"> <span class="option-icon">🛒</span> Público general</label>
-                    <label class="option-item"><input type="checkbox"> <span class="option-icon">📦</span> Distribuidores</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-section">
-            <div class="section-title"><span class="num">3</span> Servicios y productos estrella</div>
-            <div class="section-hint">Dinos qué vendes más — lo que primero ven los clientes al entrar a tu página.</div>
-
-            <div class="field-group">
-                <label class="field-label">¿Cuáles son tus 4 categorías de producto principales? *</label>
-                <div class="options-grid">
-                    <label class="option-item"><input type="checkbox"> ⚡ Materiales eléctricos</label>
-                    <label class="option-item"><input type="checkbox"> 🚿 Plomería y sanitarios</label>
-                    <label class="option-item"><input type="checkbox"> 🎨 Pinturas y acabados</label>
-                    <label class="option-item"><input type="checkbox"> 🔩 Tornillería y fijaciones</label>
-                    <label class="option-item"><input type="checkbox"> 🧱 Materiales de construcción</label>
-                    <label class="option-item"><input type="checkbox"> 🛠️ Herramienta manual</label>
-                    <label class="option-item"><input type="checkbox"> ⚙️ Herramienta eléctrica</label>
-                    <label class="option-item"><input type="checkbox"> 🌱 Jardín y exteriores</label>
-                </div>
-            </div>
-
-            <div class="field-group">
-                <label class="field-label">¿Ofrecen alguno de estos servicios adicionales?</label>
-                <div class="options-grid">
-                    <label class="option-item"><input type="checkbox"> 🚚 Domicilio o entrega</label>
-                    <label class="option-item"><input type="checkbox"> ✂️ Corte de material</label>
-                    <label class="option-item"><input type="checkbox"> 🔑 Copia de llaves</label>
-                    <label class="option-item"><input type="checkbox"> 💳 Venta a crédito</label>
-                    <label class="option-item"><input type="checkbox"> 📋 Asesoría en obra</label>
-                    <label class="option-item"><input type="checkbox"> 📦 Cotizaciones por volumen</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-section">
-            <div class="section-title"><span class="num">4</span> Fotos del negocio</div>
-            <div class="section-hint">Una foto real vale más que diez descripciones. Si no tienes alguna, la reemplazamos con imagen genérica profesional sin costo.</div>
-
-            <div class="foto-grid">
-                <div class="foto-slot"><div class="icon">🏪</div>Fachada del local</div>
-                <div class="foto-slot"><div class="icon">🔩</div>Interior / estantes</div>
-                <div class="foto-slot"><div class="icon">🛒</div>Productos destacados</div>
-                <div class="foto-slot"><div class="icon">👷</div>Equipo de trabajo</div>
-                <div class="foto-slot"><div class="icon">🚚</div>Servicio / domicilio</div>
-                <div class="foto-slot"><div class="icon">📸</div>Foto libre</div>
-            </div>
-
-            <div class="nota-yuli" style="margin-top:16px;">
-                <strong>📌 Si no tienes fotos:</strong> Envíanos lo que tengas por WhatsApp al 3123901477 y completamos con banco de imágenes profesionales del sector. Tu landing queda impecable de todas formas.
-            </div>
-        </div>
-
-        <div class="form-section">
-            <div class="section-title"><span class="num">5</span> Plan y detalles finales</div>
-            <div class="section-hint">Confirmemos qué incluye tu proyecto.</div>
-
-            <div class="field-group">
-                <label class="field-label">Plan elegido *</label>
-                <div class="options-grid cols-3">
-                    <label class="option-item"><input type="radio" name="plan-f"> Esencial<br><small style="color:var(--gray)">$790.000</small></label>
-                    <label class="option-item"><input type="radio" name="plan-f"> Profesional<br><small style="color:var(--gray)">$1.090.000</small></label>
-                    <label class="option-item"><input type="radio" name="plan-f"> Premium<br><small style="color:var(--gray)">$1.490.000</small></label>
-                </div>
-            </div>
-
-            <div class="field-group">
-                <label class="field-label">¿Algo más que quieras contarnos sobre tu ferretería? <span class="field-opt">(opcional)</span></label>
-                <textarea placeholder="Anécdota, historia del negocio, logro especial, algo de lo que estés orgulloso..."></textarea>
-            </div>
-        </div>
-
-        <div class="submit-area">
-            <div class="submit-title">¡Listo para arrancar!</div>
-            <div class="submit-sub">En máximo 7 días tienes tu landing lista para revisar.</div>
-            <button class="btn-enviar" onclick="alert('¡Formulario recibido! Yuli te contactará en breve para confirmar.')">Enviar formulario →</button>
-            <div class="submit-nota">También puedes enviarlo por WhatsApp al 3123901477</div>
-        </div>
-    </div>
+    
 
     <!-- ══════════════════════════════════════════════════════════
          VETERINARIA
     ══════════════════════════════════════════════════════════ -->
-    <div class="form-panel" id="form-veterinaria">
+    <div class="form-panel active" id="form-veterinaria">
 
         <div class="form-hero">
             <div class="nicho-badge">🐾 VETERINARIA</div>
@@ -679,6 +543,26 @@
             <div class="field-group" style="margin-top:16px;">
                 <label class="field-label">¿Algo más que quieras contarnos? <span class="field-opt">(opcional)</span></label>
                 <textarea placeholder="Un caso especial, un logro, algo de lo que estés orgulloso..."></textarea>
+            </div>
+        </div>
+
+        
+        <div class="form-section" style="border: 2px solid var(--naranja); background: linear-gradient(135deg, rgba(245,158,11,0.04), rgba(16,185,129,0.02));">
+            <div class="section-title"><span class="num" style="background:var(--verde); color:white;">+</span> 🤖 Servicios Especiales — Agentes de IA <span style="font-size:0.7rem; background:var(--naranja); color:var(--navy); padding:3px 10px; border-radius:20px; font-family:Archivo,sans-serif; font-weight:700; letter-spacing:1px;">NUEVO</span></div>
+            <div class="section-hint">Potencia tu presencia digital con un empleado virtual que trabaja 24/7 por ti. Sin descansos, sin errores, siempre disponible.</div>
+
+            <div class="field-group">
+                <label class="field-label">¿Te interesa alguno de estos servicios adicionales? <span class="field-opt">(opcional — Enrique te explica y cotiza personalmente)</span></label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 💬 <strong>Recepcionista Virtual</strong><br><small style="color:var(--gray); font-size:0.78rem;">Responde preguntas frecuentes por WhatsApp las 24h</small></label>
+                    <label class="option-item"><input type="checkbox"> 📅 <strong>Gestor de Citas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Agenda y confirma citas automáticamente por WhatsApp</small></label>
+                    <label class="option-item"><input type="checkbox"> 💰 <strong>Agente de Cobranzas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Recordatorios de pago automáticos y seguimiento de cartera</small></label>
+                    <label class="option-item"><input type="checkbox"> ❓ <strong>Quiero saber más</strong><br><small style="color:var(--gray); font-size:0.78rem;">Me interesa conocer todas las opciones disponibles</small></label>
+                </div>
+            </div>
+
+            <div class="nota-yuli" style="border-color: rgba(245,158,11,0.4);">
+                <strong>📌 ¿Cómo funciona?</strong> Enrique te contacta directamente para explicarte cuál agente se adapta mejor a tu negocio y el valor exacto según tu plan. No hay precios fijos — se personaliza para ti.
             </div>
         </div>
 
@@ -830,6 +714,26 @@
             </div>
         </div>
 
+        
+        <div class="form-section" style="border: 2px solid var(--naranja); background: linear-gradient(135deg, rgba(245,158,11,0.04), rgba(16,185,129,0.02));">
+            <div class="section-title"><span class="num" style="background:var(--verde); color:white;">+</span> 🤖 Servicios Especiales — Agentes de IA <span style="font-size:0.7rem; background:var(--naranja); color:var(--navy); padding:3px 10px; border-radius:20px; font-family:Archivo,sans-serif; font-weight:700; letter-spacing:1px;">NUEVO</span></div>
+            <div class="section-hint">Potencia tu presencia digital con un empleado virtual que trabaja 24/7 por ti. Sin descansos, sin errores, siempre disponible.</div>
+
+            <div class="field-group">
+                <label class="field-label">¿Te interesa alguno de estos servicios adicionales? <span class="field-opt">(opcional — Enrique te explica y cotiza personalmente)</span></label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 💬 <strong>Recepcionista Virtual</strong><br><small style="color:var(--gray); font-size:0.78rem;">Responde preguntas frecuentes por WhatsApp las 24h</small></label>
+                    <label class="option-item"><input type="checkbox"> 📅 <strong>Gestor de Citas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Agenda y confirma citas automáticamente por WhatsApp</small></label>
+                    <label class="option-item"><input type="checkbox"> 💰 <strong>Agente de Cobranzas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Recordatorios de pago automáticos y seguimiento de cartera</small></label>
+                    <label class="option-item"><input type="checkbox"> ❓ <strong>Quiero saber más</strong><br><small style="color:var(--gray); font-size:0.78rem;">Me interesa conocer todas las opciones disponibles</small></label>
+                </div>
+            </div>
+
+            <div class="nota-yuli" style="border-color: rgba(245,158,11,0.4);">
+                <strong>📌 ¿Cómo funciona?</strong> Enrique te contacta directamente para explicarte cuál agente se adapta mejor a tu negocio y el valor exacto según tu plan. No hay precios fijos — se personaliza para ti.
+            </div>
+        </div>
+
         <div class="submit-area">
             <div class="submit-title">¡Tus pacientes ya te están buscando!</div>
             <div class="submit-sub">En máximo 7 días tienes tu landing lista para revisar.</div>
@@ -960,6 +864,26 @@
             <div class="field-group" style="margin-top:16px;">
                 <label class="field-label">¿Algo más que quieras contarnos? <span class="field-opt">(opcional)</span></label>
                 <textarea placeholder="El ambiente que quieres transmitir, colores que te representan, algo que te hace única..."></textarea>
+            </div>
+        </div>
+
+        
+        <div class="form-section" style="border: 2px solid var(--naranja); background: linear-gradient(135deg, rgba(245,158,11,0.04), rgba(16,185,129,0.02));">
+            <div class="section-title"><span class="num" style="background:var(--verde); color:white;">+</span> 🤖 Servicios Especiales — Agentes de IA <span style="font-size:0.7rem; background:var(--naranja); color:var(--navy); padding:3px 10px; border-radius:20px; font-family:Archivo,sans-serif; font-weight:700; letter-spacing:1px;">NUEVO</span></div>
+            <div class="section-hint">Potencia tu presencia digital con un empleado virtual que trabaja 24/7 por ti. Sin descansos, sin errores, siempre disponible.</div>
+
+            <div class="field-group">
+                <label class="field-label">¿Te interesa alguno de estos servicios adicionales? <span class="field-opt">(opcional — Enrique te explica y cotiza personalmente)</span></label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 💬 <strong>Recepcionista Virtual</strong><br><small style="color:var(--gray); font-size:0.78rem;">Responde preguntas frecuentes por WhatsApp las 24h</small></label>
+                    <label class="option-item"><input type="checkbox"> 📅 <strong>Gestor de Citas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Agenda y confirma citas automáticamente por WhatsApp</small></label>
+                    <label class="option-item"><input type="checkbox"> 💰 <strong>Agente de Cobranzas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Recordatorios de pago automáticos y seguimiento de cartera</small></label>
+                    <label class="option-item"><input type="checkbox"> ❓ <strong>Quiero saber más</strong><br><small style="color:var(--gray); font-size:0.78rem;">Me interesa conocer todas las opciones disponibles</small></label>
+                </div>
+            </div>
+
+            <div class="nota-yuli" style="border-color: rgba(245,158,11,0.4);">
+                <strong>📌 ¿Cómo funciona?</strong> Enrique te contacta directamente para explicarte cuál agente se adapta mejor a tu negocio y el valor exacto según tu plan. No hay precios fijos — se personaliza para ti.
             </div>
         </div>
 
