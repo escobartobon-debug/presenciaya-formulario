@@ -472,7 +472,106 @@
                 flex-direction: column;
             }
         }
-    </style>
+    
+        /* SECCIÓN AGENTES */
+        .agentes-section {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+            padding: 6rem 2rem;
+        }
+        .agentes-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .agentes-badge {
+            display: inline-block;
+            background: #10B981;
+            color: #0f0f0f;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 8px 24px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+        }
+        .agentes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto 3rem;
+            max-width: 1100px;
+        }
+        .agente-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(243,156,18,0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        .agente-card:hover {
+            transform: translateY(-8px);
+            border-color: #F39C12;
+            box-shadow: 0 20px 60px rgba(243,156,18,0.15);
+        }
+        .agente-icon { font-size: 2.5rem; margin-bottom: 1.2rem; display: block; }
+        .agente-nombre { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #F39C12; font-weight: 700; margin-bottom: 8px; }
+        .agente-titulo { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #fff; }
+        .agente-desc { color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .agente-precios {
+            background: rgba(243,156,18,0.07);
+            border: 1px solid rgba(243,156,18,0.2);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+        }
+        .agente-precio-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 13px;
+        }
+        .agente-precio-row:last-child { border-bottom: none; }
+        .precio-label { color: rgba(255,255,255,0.5); }
+        .precio-valor { color: #F39C12; font-weight: 700; }
+        .agentes-nota {
+            background: rgba(16,185,129,0.08);
+            border: 1px solid rgba(16,185,129,0.25);
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            max-width: 760px;
+            margin: 0 auto 2.5rem;
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            text-align: left;
+        }
+        .agentes-nota strong { color: #10B981; }
+        .btn-agentes {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid #F39C12;
+            color: #F39C12;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: "Poppins", sans-serif;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        .btn-agentes:hover {
+            background: #F39C12;
+            color: #0f0f0f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(243,156,18,0.4);
+        }
+        @media (max-width: 768px) { .agentes-grid { grid-template-columns: 1fr; } }
+        </style>
 </head>
 <body>
     <section class="hero-section">
@@ -483,9 +582,10 @@
                 La presencia digital<br>que vende
             </h1>
             
-            <p class="hero-subtitle">
+            <p style="font-size:1.1rem; color:#F39C12; font-style:italic; margin-bottom:1.5rem; letter-spacing:0.5px;">Tu página atrae. Tus agentes convierten. Juntos, tu negocio trabaja solo.</p>
+        <p class="hero-subtitle">
                 Landing pages profesionales que convierten visitantes en clientes reales.<br>
-                Especializados en ferreterías, veterinarias, estética y salud.
+                Especializados en veterinarias, estética y salud.
             </p>
             
             <a href="#planes" class="cta-primary">Ver Planes y Precios</a>
@@ -496,7 +596,7 @@
                     <span class="stat-label">Días de entrega</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">4</span>
+                    <span class="stat-number">3</span>
                     <span class="stat-label">Nichos especializados</span>
                 </div>
                 <div class="stat">
@@ -571,7 +671,7 @@
                 <div class="card-icon">🎯</div>
                 <h3 class="card-title">Especializado en tu nicho</h3>
                 <p class="card-desc">
-                    Conocemos qué buscan tus clientes y cómo hablarles. Ferreterías, veterinarias, estética, salud.
+                    Conocemos qué buscan tus clientes y cómo hablarles. Veterinarias, estética y salud.
                 </p>
             </div>
             
@@ -711,6 +811,64 @@
                     <p class="pricing-desc">Dominio, SSL y hospedaje anual</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+
+    <!-- SECCIÓN AGENTES DE IA -->
+    <section class="agentes-section">
+        <div class="agentes-inner">
+            <div class="agentes-badge">🤖 Nuevo Servicio</div>
+            <h2 class="section-title">Agentes de IA para <span>tu negocio</span></h2>
+            <p class="section-subtitle">
+                Más allá de tu landing page — automatiza la atención, las citas y la cobranza con inteligencia artificial. Tu empleado digital trabaja 24/7 sin descanso.
+            </p>
+
+            <div class="agentes-grid">
+
+                <div class="agente-card">
+                    <span class="agente-icon">💬</span>
+                    <div class="agente-nombre">Servicio 1</div>
+                    <div class="agente-titulo">Recepcionista Virtual</div>
+                    <div class="agente-desc">Responde preguntas frecuentes por WhatsApp las 24 horas. Horarios, servicios, ubicación — sin que tú levantes un dedo.</div>
+                    <div class="agente-precios">
+                        <div class="agente-precio-row"><span class="precio-label">Plan Esencial</span><span class="precio-valor">80.000 + 0.000/mes</span></div>
+                        <div class="agente-precio-row"><span class="precio-label">Plan Profesional</span><span class="precio-valor">20.000 + 0.000/mes</span></div>
+                        <div class="agente-precio-row"><span class="precio-label">Plan Premium</span><span class="precio-valor">60.000 + 0.000/mes</span></div>
+                    </div>
+                </div>
+
+                <div class="agente-card" style="border-color: rgba(16,185,129,0.35);">
+                    <span class="agente-icon">📅</span>
+                    <div class="agente-nombre">Servicio 2</div>
+                    <div class="agente-titulo">Gestor de Citas</div>
+                    <div class="agente-desc">Agenda y confirma citas automáticamente por WhatsApp. Recibe el nombre, servicio y horario del cliente sin intervención tuya.</div>
+                    <div class="agente-precios">
+                        <div class="agente-precio-row"><span class="precio-label">Plan Esencial</span><span class="precio-valor">80.000 + 0.000/mes</span></div>
+                        <div class="agente-precio-row"><span class="precio-label">Plan Profesional</span><span class="precio-valor">20.000 + 0.000/mes</span></div>
+                        <div class="agente-precio-row"><span class="precio-label">Plan Premium</span><span class="precio-valor">60.000 + 0.000/mes</span></div>
+                    </div>
+                </div>
+
+                <div class="agente-card">
+                    <span class="agente-icon">💰</span>
+                    <div class="agente-nombre">Servicio 3</div>
+                    <div class="agente-titulo">Agente de Cobranzas</div>
+                    <div class="agente-desc">Recordatorios automáticos de pago y seguimiento de cartera por WhatsApp — sin confrontaciones, sin que tú intervengas.</div>
+                    <div class="agente-precios">
+                        <div class="agente-precio-row"><span class="precio-label">Plan Esencial</span><span class="precio-valor">80.000 + 0.000/mes</span></div>
+                        <div class="agente-precio-row"><span class="precio-label">Plan Profesional</span><span class="precio-valor">20.000 + 0.000/mes</span></div>
+                        <div class="agente-precio-row"><span class="precio-label">Plan Premium</span><span class="precio-valor">60.000 + 0.000/mes</span></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="agentes-nota">
+                <strong>📌 ¿Cómo funciona?</strong> Los agentes se conectan directamente al WhatsApp de tu negocio. Tú nos das la información una vez — ellos responden, agendan y cobran por ti desde ese momento. Enrique te explica personalmente cuál se adapta mejor a tu negocio y lo configura en menos de 48 horas.
+            </div>
+
+            <a href="https://wa.me/573123901477?text=Hola%20PresenciaYA%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20Agentes%20de%20IA" class="btn-agentes">🤖 Quiero saber más sobre los agentes</a>
         </div>
     </section>
 
