@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosistema YA — Formularios de Diagnóstico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Archivo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --naranja:   #F59E0B;
+            --naranja-d: #D97706;
+            --verde:     #10B981;
+            --navy:      #0F172A;
+            --navy-s:    #1E293B;
+            --cream:     #FAF8F5;
+            --gray:      #64748B;
+            --gray-cl:   #94A3B8;
+            --blanco:    #FFFFFF;
+            --borde:     #E2E8F0;
+        }
+
+        body {
+            font-family: 'Archivo', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            min-height: 100vh;
+        }
+
+        /* ── HEADER ──────────────────────────────────────────────── */
+        .header {
+            background: var(--navy);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--blanco);
+        }
+
+        .logo span { color: var(--naranja); }
+
+        .header-sub {
+            font-size: 0.8rem;
+            color: var(--gray-cl);
+            letter-spacing: 2px;
+        }
+
+        /* ── TABS DE NICHOS ───────────────────────────────────────── */
+        .tabs {
+            background: var(--navy-s);
+            display: flex;
+            overflow-x: auto;
+            padding: 0 20px;
+            gap: 4px;
+        }
+
+        .tab {
+            padding: 14px 24px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-cl);
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all 0.25s;
+            letter-spacing: 0.5px;
+        }
+
+        .tab:hover { color: var(--blanco); }
+
+        .tab.active {
+            color: var(--naranja);
+            border-bottom-color: var(--naranja);
+        }
+
+        /* ── FORMULARIO CONTAINER ────────────────────────────────── */
+        .forms-container { max-width: 800px; margin: 0 auto; padding: 40px 20px 80px; }
+
+        .form-panel { display: none; }
+        .form-panel.active { display: block; }
+
+        /* ── FORM HEADER ────────────────────────────────────────── */
+        .form-hero {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
+        }
+
+        .nicho-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--naranja-d), var(--naranja));
+            color: var(--navy);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .form-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: var(--blanco);
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .form-hero h1 em {
+            color: var(--naranja);
+            font-style: italic;
+        }
+
+        .form-hero p {
+            font-size: 1rem;
+            color: var(--gray-cl);
+            line-height: 1.7;
+            max-width: 580px;
+        }
+
+        /* ── SECCIONES DEL FORM ────────────────────────────────── */
+        .form-section {
+            background: var(--blanco);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid var(--borde);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .num {
+            background: var(--naranja);
+            color: var(--navy);
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: 'Archivo', sans-serif;
+            flex-shrink: 0;
+        }
+
+        .section-hint {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            padding-left: 36px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* ── CAMPOS ─────────────────────────────────────────────── */
+        .field-group { margin-bottom: 18px; }
+
+        .field-label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .field-opt {
+            font-size: 0.75rem;
+            color: var(--gray-cl);
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--borde);
+            border-radius: 8px;
+            font-family: 'Archivo', sans-serif;
+            font-size: 0.95rem;
+            color: var(--navy);
+            background: var(--cream);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--naranja);
+            background: var(--blanco);
+        }
+
+        textarea { min-height: 90px; resize: vertical; }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        /* ── OPCIONES RADIO/CHECK ───────────────────────────────── */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .options-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+        .option-item {
+            border: 1.5px solid var(--borde);
+            border-radius: 8px;
+            padding: 12px 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+
+        .option-item:hover { border-color: var(--naranja); background: #FFFBEB; }
+
+        .option-item input[type="radio"],
+        .option-item input[type="checkbox"] {
+            width: 16px; height: 16px;
+            accent-color: var(--naranja);
+            flex-shrink: 0;
+        }
+
+        .option-icon { font-size: 1.1rem; }
+
+        /* ── FOTO PLACEHOLDER ───────────────────────────────────── */
+        .foto-hint {
+            background: #FFFBEB;
+            border: 1.5px dashed var(--naranja);
+            border-radius: 8px;
+            padding: 18px 20px;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .foto-hint p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .foto-hint strong { color: var(--naranja-d); }
+
+        .foto-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .foto-slot {
+            background: var(--cream);
+            border: 1.5px dashed var(--borde);
+            border-radius: 8px;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .foto-slot .icon { font-size: 1.5rem; margin-bottom: 4px; }
+
+        /* ── NOTA YULI ──────────────────────────────────────────── */
+        .nota-yuli {
+            background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(16,185,129,0.04));
+            border: 1px solid rgba(245,158,11,0.25);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-top: 6px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .nota-yuli strong { color: var(--naranja-d); }
+
+        /* ── SUBMIT ─────────────────────────────────────────────── */
+        .submit-area {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .submit-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--blanco);
+            margin-bottom: 8px;
+        }
+
+        .submit-sub {
+            font-size: 0.88rem;
+            color: var(--gray-cl);
+            margin-bottom: 20px;
+        }
+
+        .btn-enviar {
+            background: linear-gradient(135deg, var(--naranja-d), var(--naranja));
+            color: var(--navy);
+            border: none;
+            padding: 16px 50px;
+            border-radius: 50px;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-enviar:hover { transform: scale(1.04); }
+
+        .submit-nota {
+            font-size: 0.78rem;
+            color: var(--gray-cl);
+            margin-top: 14px;
+        }
+
+        /* ── RESPONSIVE ─────────────────────────────────────────── */
+        @media (max-width: 600px) {
+            .header { padding: 16px 20px; }
+            .form-hero { padding: 25px 20px; }
+            .form-hero h1 { font-size: 1.5rem; }
+            .field-row { grid-template-columns: 1fr; }
+            .options-grid { grid-template-columns: 1fr; }
+            .options-grid.cols-3 { grid-template-columns: repeat(2,1fr); }
+            .foto-grid { grid-template-columns: repeat(2,1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <div class="logo">Ecosistema <span>YA</span></div>
+        <div class="header-sub">FORMULARIOS DE DIAGNÓSTICO</div>
+    </div>
+    <div style="font-size:0.8rem; color:var(--gray-cl); text-align:right;">
+        Enrique Escobar Tobón<br>
+        <span style="color:var(--naranja);">📱 3123901477</span>
+    </div>
+</div>
+
+
+    <div style="text-align:center; padding: 10px 20px 0; background: var(--navy);">
+        <p style="font-size:0.85rem; color:var(--naranja); font-style:italic; letter-spacing:0.5px; font-family:'Archivo',sans-serif;">
+            Tu página atrae. Tus agentes convierten. Juntos, tu negocio trabaja solo.
+        </p>
+    </div>
+<div class="tabs">
+    
+    <div class="tab active" onclick="showTab('veterinaria', this)">🐾 Veterinaria</div>
+    <div class="tab" onclick="showTab('salud', this)">🏥 Salud</div>
+    <div class="tab" onclick="showTab('estetica', this)">💆 Estética / Spa</div>
+</div>
+
+<div class="forms-container">
+
+    <!-- ══════════════════════════════════════════════════════════
+         FERRETERÍA
+    ══════════════════════════════════════════════════════════ -->
+    
+
+    <!-- ══════════════════════════════════════════════════════════
+         VETERINARIA
+    ══════════════════════════════════════════════════════════ -->
+    <div class="form-panel active" id="form-veterinaria">
+
+        <div class="form-hero">
+            <div class="nicho-badge">🐾 VETERINARIA</div>
+            <h1>Cuidas a sus mascotas como si fueran tuyas.<br><em>Que lo sepan en todo el barrio.</em></h1>
+            <p>Cuéntanos sobre tu clínica — construimos una página que transmite el amor y la profesionalidad que pones en cada consulta. Los dueños de mascotas deciden con el corazón. Tu página también.</p>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">1</span> Datos del consultorio</div>
+            <div class="section-hint">La información que un dueño de mascota busca antes de llamar.</div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">Nombre de la veterinaria *</label>
+                    <input type="text" placeholder="Ej: Veterinaria Patitas Felices">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Nombre del veterinario principal *</label>
+                    <input type="text" placeholder="Ej: Dr. Andrés Gómez">
+                </div>
+            </div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">Ciudad y barrio *</label>
+                    <input type="text" placeholder="Ej: Pereira, Álamos">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Dirección *</label>
+                    <input type="text" placeholder="Ej: Cll 15 # 8-22 Local 3">
+                </div>
+            </div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">WhatsApp *</label>
+                    <input type="tel" placeholder="3XXXXXXXXX">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Horario de atención *</label>
+                    <input type="text" placeholder="Ej: Lun–Sáb 8am–7pm · Dom 9am–1pm">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">¿Tienen atención de urgencias? *</label>
+                <div class="options-grid cols-3">
+                    <label class="option-item"><input type="radio" name="urg"> ✅ Sí, 24 horas</label>
+                    <label class="option-item"><input type="radio" name="urg"> 🕐 Sí, horario extendido</label>
+                    <label class="option-item"><input type="radio" name="urg"> ❌ No por ahora</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">2</span> Tu historia y lo que te hace especial</div>
+            <div class="section-hint">Los dueños de mascotas no solo buscan un veterinario — buscan a alguien en quien confiar con su familia de 4 patas.</div>
+
+            <div class="field-group">
+                <label class="field-label">¿Por qué decidiste ser veterinario/a? ¿Hay una historia detrás? *</label>
+                <textarea placeholder="Ej: Desde los 8 años rescataba animales del barrio. Cuando mi perra Nala enfermó y el veterinario la salvó, supe que quería hacer lo mismo por otros..."></textarea>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">¿Qué es lo que más valoran tus clientes de ti?</label>
+                <textarea placeholder="Ej: Que siempre explico el diagnóstico con palabras simples, nunca apuro a los dueños, y respondo mensajes fuera del horario si hay urgencia..."></textarea>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">3</span> Servicios que ofreces</div>
+            <div class="section-hint">Marca todo lo que tienes disponible — lo organizamos de forma atractiva en tu página.</div>
+
+            <div class="field-group">
+                <label class="field-label">Servicios principales *</label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 🩺 Consulta general</label>
+                    <label class="option-item"><input type="checkbox"> 💉 Vacunación</label>
+                    <label class="option-item"><input type="checkbox"> ✂️ Cirugía</label>
+                    <label class="option-item"><input type="checkbox"> 🦷 Odontología veterinaria</label>
+                    <label class="option-item"><input type="checkbox"> 🛁 Peluquería y baño</label>
+                    <label class="option-item"><input type="checkbox"> 🔬 Laboratorio clínico</label>
+                    <label class="option-item"><input type="checkbox"> 📷 Rayos X / Ecografía</label>
+                    <label class="option-item"><input type="checkbox"> 🏠 Servicio a domicilio</label>
+                    <label class="option-item"><input type="checkbox"> 🐶 Planes de salud / membresías</label>
+                    <label class="option-item"><input type="checkbox"> 🛒 Venta de alimentos y accesorios</label>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">¿Qué animales atienden? *</label>
+                <div class="options-grid cols-3">
+                    <label class="option-item"><input type="checkbox"> 🐕 Perros</label>
+                    <label class="option-item"><input type="checkbox"> 🐈 Gatos</label>
+                    <label class="option-item"><input type="checkbox"> 🐦 Aves</label>
+                    <label class="option-item"><input type="checkbox"> 🐇 Conejos</label>
+                    <label class="option-item"><input type="checkbox"> 🐠 Peces</label>
+                    <label class="option-item"><input type="checkbox"> 🦎 Exóticos</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">4</span> Fotos</div>
+            <div class="section-hint">Las fotos de mascotas generan más engagement que cualquier otro contenido. Si no tienes algunas, las reemplazamos.</div>
+
+            <div class="foto-grid">
+                <div class="foto-slot"><div class="icon">🏥</div>Fachada o sala de espera</div>
+                <div class="foto-slot"><div class="icon">👨‍⚕️</div>Veterinario en consulta</div>
+                <div class="foto-slot"><div class="icon">🐕</div>Paciente feliz</div>
+                <div class="foto-slot"><div class="icon">✂️</div>Peluquería / procedimiento</div>
+                <div class="foto-slot"><div class="icon">💉</div>Vacunación o chequeo</div>
+                <div class="foto-slot"><div class="icon">📸</div>Foto libre del equipo</div>
+            </div>
+
+            <div class="nota-yuli">
+                <strong>📌 Sin fotos:</strong> Tenemos banco de imágenes veterinarias profesionales libres de derechos. Tu página se verá igual de cálida y confiable.
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">5</span> Plan</div>
+            <div class="field-group">
+                <div class="options-grid cols-3">
+                    <label class="option-item"><input type="radio" name="plan-v"> Esencial<br><small style="color:var(--gray)">$790.000</small></label>
+                    <label class="option-item"><input type="radio" name="plan-v"> Profesional<br><small style="color:var(--gray)">$1.090.000</small></label>
+                    <label class="option-item"><input type="radio" name="plan-v"> Premium<br><small style="color:var(--gray)">$1.490.000</small></label>
+                </div>
+            </div>
+            <div class="field-group" style="margin-top:16px;">
+                <label class="field-label">¿Algo más que quieras contarnos? <span class="field-opt">(opcional)</span></label>
+                <textarea placeholder="Un caso especial, un logro, algo de lo que estés orgulloso..."></textarea>
+            </div>
+        </div>
+
+        
+        <div class="form-section" style="border: 2px solid #3B82F6; background: linear-gradient(135deg, rgba(59,130,246,0.04), rgba(16,185,129,0.02));">
+            <div class="section-title"><span class="num" style="background:#3B82F6; color:white;">+</span> ✍️ Servicios Especiales — ContenidoYA <span style="font-size:0.7rem; background:#3B82F6; color:white; padding:3px 10px; border-radius:20px; font-family:Archivo,sans-serif; font-weight:700; letter-spacing:1px;">NUEVO</span></div>
+            <div class="section-hint">Contenido para redes sociales escrito con copywriting y storytelling Rosa Morel — listo para publicar cada semana. Tú solo publicas.</div>
+            <div class="field-group">
+                <label class="field-label">¿Te interesa ContenidoYA para tu negocio? <span class="field-opt">(opcional — Enrique te explica y cotiza personalmente)</span></label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 📸 <strong>Instagram y/o Facebook</strong><br><small style="color:var(--gray); font-size:0.78rem;">10 a 26+ piezas mensuales según el plan</small></label>
+                    <label class="option-item"><input type="checkbox"> ✍️ <strong>Copy + hashtags listos</strong><br><small style="color:var(--gray); font-size:0.78rem;">Texto emocional Rosa Morel, cero plantillas genéricas</small></label>
+                    <label class="option-item"><input type="checkbox"> 🖼️ <strong>Imágenes generadas con IA</strong><br><small style="color:var(--gray); font-size:0.78rem;">Visuales a la medida de tu marca</small></label>
+                    <label class="option-item"><input type="checkbox"> ❓ <strong>Quiero saber más</strong><br><small style="color:var(--gray); font-size:0.78rem;">Me interesa conocer planes y precios</small></label>
+                </div>
+            </div>
+            <div class="nota-yuli" style="border-color: rgba(59,130,246,0.4);">
+                <strong>📌 ¿Cómo funciona?</strong> Enrique te contacta directamente para mostrarte demos reales por nicho y explicarte el plan que mejor se ajusta a tu negocio.
+            </div>
+        </div>
+
+                <div class="form-section" style="border: 2px solid var(--naranja); background: linear-gradient(135deg, rgba(245,158,11,0.04), rgba(16,185,129,0.02));">
+            <div class="section-title"><span class="num" style="background:var(--verde); color:white;">+</span> 🤖 Servicios Especiales — Agentes de IA <span style="font-size:0.7rem; background:var(--naranja); color:var(--navy); padding:3px 10px; border-radius:20px; font-family:Archivo,sans-serif; font-weight:700; letter-spacing:1px;">NUEVO</span></div>
+            <div class="section-hint">Potencia tu presencia digital con un empleado virtual que trabaja 24/7 por ti. Sin descansos, sin errores, siempre disponible.</div>
+
+            <div class="field-group">
+                <label class="field-label">¿Te interesa alguno de estos servicios adicionales? <span class="field-opt">(opcional — Enrique te explica y cotiza personalmente)</span></label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 💬 <strong>Recepcionista Virtual</strong><br><small style="color:var(--gray); font-size:0.78rem;">Responde preguntas frecuentes por WhatsApp las 24h</small></label>
+                    <label class="option-item"><input type="checkbox"> 📅 <strong>Gestor de Citas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Agenda y confirma citas automáticamente por WhatsApp</small></label>
+                    <label class="option-item"><input type="checkbox"> 💰 <strong>Agente de Cobranzas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Recordatorios de pago automáticos y seguimiento de cartera</small></label>
+                    <label class="option-item"><input type="checkbox"> ✍️ <strong>ContenidoYA</strong><br><small style="color:var(--gray); font-size:0.78rem;">Contenido para redes con copywriting Rosa Morel, listo para publicar</small></label>
+                    <label class="option-item"><input type="checkbox"> ❓ <strong>Quiero saber más</strong><br><small style="color:var(--gray); font-size:0.78rem;">Me interesa conocer todas las opciones disponibles</small></label>
+                </div>
+            </div>
+
+            <div class="nota-yuli" style="border-color: rgba(245,158,11,0.4);">
+                <strong>📌 ¿Cómo funciona?</strong> Enrique te contacta directamente para explicarte cuál agente se adapta mejor a tu negocio y el valor exacto según tu plan. No hay precios fijos — se personaliza para ti.
+            </div>
+        </div>
+
+        <div class="submit-area">
+            <div class="submit-title">¡Tu clínica merece ser encontrada!</div>
+            <div class="submit-sub">En máximo 7 días tienes tu landing lista para revisar.</div>
+            <button class="btn-enviar" onclick="window.open('https://wa.me/573052384536?text=Hola%20Enrique,%20te%20comparto%20el%20formulario%20de%20Ecosistema%20YA%20—%20Veterinaria:%20https://escobartobon-debug.github.io/presenciaya-formulario/ECOSISTEMAYA_FORMULARIOS.html', '_blank')">Enviar formulario →</button>
+            <div class="submit-nota">También puedes enviarlo por WhatsApp al 3052384536</div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SALUD
+    ══════════════════════════════════════════════════════════ -->
+    <div class="form-panel" id="form-salud">
+
+        <div class="form-hero">
+            <div class="nicho-badge">🏥 SALUD</div>
+            <h1>Tu paciente ya está buscando.<br><em>¿Eres tú quien aparece primero?</em></h1>
+            <p>Completa este diagnóstico y construimos una página que transmite la confianza que tus pacientes necesitan sentir antes de dar ese primer paso. En salud, la primera impresión lo decide todo.</p>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">1</span> Datos del consultorio o clínica</div>
+            <div class="section-hint">Lo que un paciente busca antes de llamar a pedir cita.</div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">Nombre del consultorio / clínica *</label>
+                    <input type="text" placeholder="Ej: Clínica Dental Sonrisa Sana">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Especialidad principal *</label>
+                    <input type="text" placeholder="Ej: Odontología, Oftalmología, Medicina General...">
+                </div>
+            </div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">Nombre del profesional principal *</label>
+                    <input type="text" placeholder="Ej: Dra. Carolina Restrepo">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Título y registro profesional <span class="field-opt">(opcional)</span></label>
+                    <input type="text" placeholder="Ej: Odontóloga Especialista — TP 12345">
+                </div>
+            </div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">Ciudad y barrio *</label>
+                    <input type="text" placeholder="Ej: Pereira, Centro">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Dirección *</label>
+                    <input type="text" placeholder="Ej: Cra 7 # 19-30 Of. 204">
+                </div>
+            </div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">WhatsApp para citas *</label>
+                    <input type="tel" placeholder="3XXXXXXXXX">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Horario de atención *</label>
+                    <input type="text" placeholder="Ej: Lun–Vie 8am–6pm · Sáb 9am–1pm">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">2</span> Tu historia y credibilidad</div>
+            <div class="section-hint">En salud, el paciente necesita confiar antes de entrar. Tu historia es tu mejor credencial.</div>
+
+            <div class="field-group">
+                <label class="field-label">¿Cuántos años de experiencia tienes? ¿Hay algo especial en tu trayectoria? *</label>
+                <textarea placeholder="Ej: 15 años ejerciendo, 8 de ellos en esta clínica. Me especialicé en ortodoncia invisible porque vi cuántos adultos evitaban sonreír por vergüenza..."></textarea>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">¿Qué dicen tus pacientes de ti? ¿Tienes algún testimonio real? <span class="field-opt">(opcional)</span></label>
+                <textarea placeholder="Ej: 'La Dra. Restrepo es la única que me ha explicado todo sin apurarme' — María T., paciente desde 2018"></textarea>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">3</span> Servicios</div>
+            <div class="section-hint">Marca los servicios que ofreces — los organizamos con descripciones que generan confianza, no solo listas.</div>
+
+            <div class="field-group">
+                <label class="field-label">Servicios disponibles *</label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 🦷 Limpieza dental</label>
+                    <label class="option-item"><input type="checkbox"> 😁 Blanqueamiento</label>
+                    <label class="option-item"><input type="checkbox"> 🦴 Ortodoncia / brackets</label>
+                    <label class="option-item"><input type="checkbox"> 🔬 Ortodoncia invisible</label>
+                    <label class="option-item"><input type="checkbox"> 🪥 Endodoncia</label>
+                    <label class="option-item"><input type="checkbox"> 💎 Carillas estéticas</label>
+                    <label class="option-item"><input type="checkbox"> 🦷 Implantes</label>
+                    <label class="option-item"><input type="checkbox"> 👁️ Examen de la vista</label>
+                    <label class="option-item"><input type="checkbox"> 👓 Adaptación de lentes</label>
+                    <label class="option-item"><input type="checkbox"> 🩺 Consulta general</label>
+                    <label class="option-item"><input type="checkbox"> 💊 Medicina preventiva</label>
+                    <label class="option-item"><input type="checkbox"> 📋 Chequeos periódicos</label>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">¿Manejan planes de financiación o cuotas? *</label>
+                <div class="options-grid cols-3">
+                    <label class="option-item"><input type="radio" name="fin"> ✅ Sí, propios</label>
+                    <label class="option-item"><input type="radio" name="fin"> 💳 Con entidades</label>
+                    <label class="option-item"><input type="radio" name="fin"> ❌ No por ahora</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">4</span> Fotos</div>
+            <div class="section-hint">En salud las fotos más efectivas son las del equipo y el espacio — transmiten limpieza, orden y calidez. Sin fotos usamos banco de imágenes.</div>
+
+            <div class="foto-grid">
+                <div class="foto-slot"><div class="icon">🏥</div>Sala de espera</div>
+                <div class="foto-slot"><div class="icon">👩‍⚕️</div>Profesional en consulta</div>
+                <div class="foto-slot"><div class="icon">🛏️</div>Consultorio / equipos</div>
+                <div class="foto-slot"><div class="icon">😊</div>Paciente (con permiso)</div>
+                <div class="foto-slot"><div class="icon">🎓</div>Diploma / certificados</div>
+                <div class="foto-slot"><div class="icon">👥</div>Equipo completo</div>
+            </div>
+
+            <div class="nota-yuli">
+                <strong>📌 Importante:</strong> Si tienes fotos del antes/después de tratamientos (con permiso del paciente), son el contenido más poderoso para una landing de salud. Envíalas al 3123901477.
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">5</span> Plan</div>
+            <div class="field-group">
+                <div class="options-grid cols-3">
+                    <label class="option-item"><input type="radio" name="plan-s"> Esencial<br><small style="color:var(--gray)">$790.000</small></label>
+                    <label class="option-item"><input type="radio" name="plan-s"> Profesional<br><small style="color:var(--gray)">$1.090.000</small></label>
+                    <label class="option-item"><input type="radio" name="plan-s"> Premium<br><small style="color:var(--gray)">$1.490.000</small></label>
+                </div>
+            </div>
+            <div class="field-group" style="margin-top:16px;">
+                <label class="field-label">¿Algo más que quieras incluir? <span class="field-opt">(opcional)</span></label>
+                <textarea placeholder="Reconocimiento, logro especial, algo que te diferencia que no encaja en las preguntas anteriores..."></textarea>
+            </div>
+        </div>
+
+        
+        <div class="form-section" style="border: 2px solid #3B82F6; background: linear-gradient(135deg, rgba(59,130,246,0.04), rgba(16,185,129,0.02));">
+            <div class="section-title"><span class="num" style="background:#3B82F6; color:white;">+</span> ✍️ Servicios Especiales — ContenidoYA <span style="font-size:0.7rem; background:#3B82F6; color:white; padding:3px 10px; border-radius:20px; font-family:Archivo,sans-serif; font-weight:700; letter-spacing:1px;">NUEVO</span></div>
+            <div class="section-hint">Contenido para redes sociales escrito con copywriting y storytelling Rosa Morel — listo para publicar cada semana. Tú solo publicas.</div>
+            <div class="field-group">
+                <label class="field-label">¿Te interesa ContenidoYA para tu negocio? <span class="field-opt">(opcional — Enrique te explica y cotiza personalmente)</span></label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 📸 <strong>Instagram y/o Facebook</strong><br><small style="color:var(--gray); font-size:0.78rem;">10 a 26+ piezas mensuales según el plan</small></label>
+                    <label class="option-item"><input type="checkbox"> ✍️ <strong>Copy + hashtags listos</strong><br><small style="color:var(--gray); font-size:0.78rem;">Texto emocional Rosa Morel, cero plantillas genéricas</small></label>
+                    <label class="option-item"><input type="checkbox"> 🖼️ <strong>Imágenes generadas con IA</strong><br><small style="color:var(--gray); font-size:0.78rem;">Visuales a la medida de tu marca</small></label>
+                    <label class="option-item"><input type="checkbox"> ❓ <strong>Quiero saber más</strong><br><small style="color:var(--gray); font-size:0.78rem;">Me interesa conocer planes y precios</small></label>
+                </div>
+            </div>
+            <div class="nota-yuli" style="border-color: rgba(59,130,246,0.4);">
+                <strong>📌 ¿Cómo funciona?</strong> Enrique te contacta directamente para mostrarte demos reales por nicho y explicarte el plan que mejor se ajusta a tu negocio.
+            </div>
+        </div>
+
+                <div class="form-section" style="border: 2px solid var(--naranja); background: linear-gradient(135deg, rgba(245,158,11,0.04), rgba(16,185,129,0.02));">
+            <div class="section-title"><span class="num" style="background:var(--verde); color:white;">+</span> 🤖 Servicios Especiales — Agentes de IA <span style="font-size:0.7rem; background:var(--naranja); color:var(--navy); padding:3px 10px; border-radius:20px; font-family:Archivo,sans-serif; font-weight:700; letter-spacing:1px;">NUEVO</span></div>
+            <div class="section-hint">Potencia tu presencia digital con un empleado virtual que trabaja 24/7 por ti. Sin descansos, sin errores, siempre disponible.</div>
+
+            <div class="field-group">
+                <label class="field-label">¿Te interesa alguno de estos servicios adicionales? <span class="field-opt">(opcional — Enrique te explica y cotiza personalmente)</span></label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 💬 <strong>Recepcionista Virtual</strong><br><small style="color:var(--gray); font-size:0.78rem;">Responde preguntas frecuentes por WhatsApp las 24h</small></label>
+                    <label class="option-item"><input type="checkbox"> 📅 <strong>Gestor de Citas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Agenda y confirma citas automáticamente por WhatsApp</small></label>
+                    <label class="option-item"><input type="checkbox"> 💰 <strong>Agente de Cobranzas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Recordatorios de pago automáticos y seguimiento de cartera</small></label>
+                    <label class="option-item"><input type="checkbox"> ✍️ <strong>ContenidoYA</strong><br><small style="color:var(--gray); font-size:0.78rem;">Contenido para redes con copywriting Rosa Morel, listo para publicar</small></label>
+                    <label class="option-item"><input type="checkbox"> ❓ <strong>Quiero saber más</strong><br><small style="color:var(--gray); font-size:0.78rem;">Me interesa conocer todas las opciones disponibles</small></label>
+                </div>
+            </div>
+
+            <div class="nota-yuli" style="border-color: rgba(245,158,11,0.4);">
+                <strong>📌 ¿Cómo funciona?</strong> Enrique te contacta directamente para explicarte cuál agente se adapta mejor a tu negocio y el valor exacto según tu plan. No hay precios fijos — se personaliza para ti.
+            </div>
+        </div>
+
+        <div class="submit-area">
+            <div class="submit-title">¡Tus pacientes ya te están buscando!</div>
+            <div class="submit-sub">En máximo 7 días tienes tu landing lista para revisar.</div>
+            <button class="btn-enviar" onclick="window.open('https://wa.me/573052384536?text=Hola%20Enrique,%20te%20comparto%20el%20formulario%20de%20Ecosistema%20YA%20—%20Salud:%20https://escobartobon-debug.github.io/presenciaya-formulario/ECOSISTEMAYA_FORMULARIOS.html', '_blank')">Enviar formulario →</button>
+            <div class="submit-nota">También puedes enviarlo por WhatsApp al 3052384536</div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         ESTÉTICA / SPA
+    ══════════════════════════════════════════════════════════ -->
+    <div class="form-panel" id="form-estetica">
+
+        <div class="form-hero">
+            <div class="nicho-badge">💆 ESTÉTICA / SPA</div>
+            <h1>Transformas cómo se sienten las personas por dentro y por fuera.<br><em>Tu página debería hacer lo mismo.</em></h1>
+            <p>Cuéntanos sobre tu espacio — construimos una página que seduce antes de que el cliente entre por la puerta. En estética, la primera impresión es el servicio.</p>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">1</span> Datos del negocio</div>
+            <div class="section-hint">Lo que una clienta busca antes de reservar su primera cita.</div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">Nombre del centro / spa *</label>
+                    <input type="text" placeholder="Ej: Spa Serenidad o Centro Estético Lumière">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Nombre de la propietaria / directora *</label>
+                    <input type="text" placeholder="Ej: Valentina Cruz">
+                </div>
+            </div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">Ciudad y barrio *</label>
+                    <input type="text" placeholder="Ej: Pereira, Álamos">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Dirección *</label>
+                    <input type="text" placeholder="Ej: Cll 22 # 14-5 Local 1">
+                </div>
+            </div>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label class="field-label">WhatsApp para reservas *</label>
+                    <input type="tel" placeholder="3XXXXXXXXX">
+                </div>
+                <div class="field-group">
+                    <label class="field-label">Horario *</label>
+                    <input type="text" placeholder="Ej: Mar–Sáb 9am–7pm · Dom 10am–3pm">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">2</span> La experiencia que ofreces</div>
+            <div class="section-hint">Una clienta no compra un servicio de estética — compra cómo va a sentirse. Cuéntanos esa experiencia.</div>
+
+            <div class="field-group">
+                <label class="field-label">¿Cómo describes la experiencia de entrar a tu espacio? *</label>
+                <textarea placeholder="Ej: Desde que entras sientes el aroma a lavanda, la música suave te hace respirar diferente. No hay apuro, no hay ruido. Solo tú y el tiempo que te mereces..."></textarea>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">¿Qué hace que tus clientas vuelvan una y otra vez?</label>
+                <textarea placeholder="Ej: Los resultados duran más porque usamos productos premium. Pero sobre todo porque recordamos el nombre de cada clienta y cómo le gusta el café..."></textarea>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">3</span> Servicios</div>
+            <div class="section-hint">Marca todo lo que ofreces — lo presentamos de forma que se sienta lujoso aunque sea accesible.</div>
+
+            <div class="field-group">
+                <label class="field-label">Servicios disponibles *</label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 💆 Masajes relajantes</label>
+                    <label class="option-item"><input type="checkbox"> 🧖 Tratamientos faciales</label>
+                    <label class="option-item"><input type="checkbox"> 💅 Manicure y pedicure</label>
+                    <label class="option-item"><input type="checkbox"> 💎 Uñas en acrílico/gel</label>
+                    <label class="option-item"><input type="checkbox"> 🦵 Depilación</label>
+                    <label class="option-item"><input type="checkbox"> ✨ Tratamientos corporales</label>
+                    <label class="option-item"><input type="checkbox"> 💇 Servicios capilares</label>
+                    <label class="option-item"><input type="checkbox"> 👁️ Diseño de cejas</label>
+                    <label class="option-item"><input type="checkbox"> 💋 Maquillaje profesional</label>
+                    <label class="option-item"><input type="checkbox"> 🌊 Hidroterapia / sauna</label>
+                    <label class="option-item"><input type="checkbox"> 🎁 Paquetes para novias</label>
+                    <label class="option-item"><input type="checkbox"> 🥂 Eventos / días de spa</label>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">¿Tienes algún servicio o ritual exclusivo que nadie más ofrece en la zona? <span class="field-opt">(opcional)</span></label>
+                <input type="text" placeholder="Ej: Ritual de velas con aromaterapia colombiana, masaje con piedras de río Otún...">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">4</span> Fotos del espacio</div>
+            <div class="section-hint">En estética las fotos son todo. Una imagen del espacio bien iluminado vale más que mil palabras. Envía lo que tengas — completamos con banco de imágenes de lujo.</div>
+
+            <div class="foto-grid">
+                <div class="foto-slot"><div class="icon">🏡</div>Fachada o entrada</div>
+                <div class="foto-slot"><div class="icon">🛏️</div>Sala de tratamiento</div>
+                <div class="foto-slot"><div class="icon">💆</div>Servicio en proceso</div>
+                <div class="foto-slot"><div class="icon">✨</div>Antes / después</div>
+                <div class="foto-slot"><div class="icon">🕯️</div>Detalle ambiente</div>
+                <div class="foto-slot"><div class="icon">👩‍💼</div>Equipo o propietaria</div>
+            </div>
+
+            <div class="nota-yuli">
+                <strong>📌 Tip Ecosistema YA:</strong> Las fotos de antes/después son el contenido que más convierte en estética. Si tienes algunas (con permiso de la clienta), inclúyelas — marcan la diferencia.
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title"><span class="num">5</span> Plan</div>
+            <div class="field-group">
+                <div class="options-grid cols-3">
+                    <label class="option-item"><input type="radio" name="plan-e"> Esencial<br><small style="color:var(--gray)">$790.000</small></label>
+                    <label class="option-item"><input type="radio" name="plan-e"> Profesional<br><small style="color:var(--gray)">$1.090.000</small></label>
+                    <label class="option-item"><input type="radio" name="plan-e"> Premium<br><small style="color:var(--gray)">$1.490.000</small></label>
+                </div>
+            </div>
+            <div class="field-group" style="margin-top:16px;">
+                <label class="field-label">¿Algo más que quieras contarnos? <span class="field-opt">(opcional)</span></label>
+                <textarea placeholder="El ambiente que quieres transmitir, colores que te representan, algo que te hace única..."></textarea>
+            </div>
+        </div>
+
+        
+        <div class="form-section" style="border: 2px solid #3B82F6; background: linear-gradient(135deg, rgba(59,130,246,0.04), rgba(16,185,129,0.02));">
+            <div class="section-title"><span class="num" style="background:#3B82F6; color:white;">+</span> ✍️ Servicios Especiales — ContenidoYA <span style="font-size:0.7rem; background:#3B82F6; color:white; padding:3px 10px; border-radius:20px; font-family:Archivo,sans-serif; font-weight:700; letter-spacing:1px;">NUEVO</span></div>
+            <div class="section-hint">Contenido para redes sociales escrito con copywriting y storytelling Rosa Morel — listo para publicar cada semana. Tú solo publicas.</div>
+            <div class="field-group">
+                <label class="field-label">¿Te interesa ContenidoYA para tu negocio? <span class="field-opt">(opcional — Enrique te explica y cotiza personalmente)</span></label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 📸 <strong>Instagram y/o Facebook</strong><br><small style="color:var(--gray); font-size:0.78rem;">10 a 26+ piezas mensuales según el plan</small></label>
+                    <label class="option-item"><input type="checkbox"> ✍️ <strong>Copy + hashtags listos</strong><br><small style="color:var(--gray); font-size:0.78rem;">Texto emocional Rosa Morel, cero plantillas genéricas</small></label>
+                    <label class="option-item"><input type="checkbox"> 🖼️ <strong>Imágenes generadas con IA</strong><br><small style="color:var(--gray); font-size:0.78rem;">Visuales a la medida de tu marca</small></label>
+                    <label class="option-item"><input type="checkbox"> ❓ <strong>Quiero saber más</strong><br><small style="color:var(--gray); font-size:0.78rem;">Me interesa conocer planes y precios</small></label>
+                </div>
+            </div>
+            <div class="nota-yuli" style="border-color: rgba(59,130,246,0.4);">
+                <strong>📌 ¿Cómo funciona?</strong> Enrique te contacta directamente para mostrarte demos reales por nicho y explicarte el plan que mejor se ajusta a tu negocio.
+            </div>
+        </div>
+
+                <div class="form-section" style="border: 2px solid var(--naranja); background: linear-gradient(135deg, rgba(245,158,11,0.04), rgba(16,185,129,0.02));">
+            <div class="section-title"><span class="num" style="background:var(--verde); color:white;">+</span> 🤖 Servicios Especiales — Agentes de IA <span style="font-size:0.7rem; background:var(--naranja); color:var(--navy); padding:3px 10px; border-radius:20px; font-family:Archivo,sans-serif; font-weight:700; letter-spacing:1px;">NUEVO</span></div>
+            <div class="section-hint">Potencia tu presencia digital con un empleado virtual que trabaja 24/7 por ti. Sin descansos, sin errores, siempre disponible.</div>
+
+            <div class="field-group">
+                <label class="field-label">¿Te interesa alguno de estos servicios adicionales? <span class="field-opt">(opcional — Enrique te explica y cotiza personalmente)</span></label>
+                <div class="options-grid">
+                    <label class="option-item"><input type="checkbox"> 💬 <strong>Recepcionista Virtual</strong><br><small style="color:var(--gray); font-size:0.78rem;">Responde preguntas frecuentes por WhatsApp las 24h</small></label>
+                    <label class="option-item"><input type="checkbox"> 📅 <strong>Gestor de Citas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Agenda y confirma citas automáticamente por WhatsApp</small></label>
+                    <label class="option-item"><input type="checkbox"> 💰 <strong>Agente de Cobranzas</strong><br><small style="color:var(--gray); font-size:0.78rem;">Recordatorios de pago automáticos y seguimiento de cartera</small></label>
+                    <label class="option-item"><input type="checkbox"> ✍️ <strong>ContenidoYA</strong><br><small style="color:var(--gray); font-size:0.78rem;">Contenido para redes con copywriting Rosa Morel, listo para publicar</small></label>
+                    <label class="option-item"><input type="checkbox"> ❓ <strong>Quiero saber más</strong><br><small style="color:var(--gray); font-size:0.78rem;">Me interesa conocer todas las opciones disponibles</small></label>
+                </div>
+            </div>
+
+            <div class="nota-yuli" style="border-color: rgba(245,158,11,0.4);">
+                <strong>📌 ¿Cómo funciona?</strong> Enrique te contacta directamente para explicarte cuál agente se adapta mejor a tu negocio y el valor exacto según tu plan. No hay precios fijos — se personaliza para ti.
+            </div>
+        </div>
+
+        <div class="submit-area">
+            <div class="submit-title">¡Tu espacio merece brillar en internet!</div>
+            <div class="submit-sub">En máximo 7 días tienes tu landing lista para revisar.</div>
+            <button class="btn-enviar" onclick="window.open('https://wa.me/573052384536?text=Hola%20Enrique,%20te%20comparto%20el%20formulario%20de%20Ecosistema%20YA%20—%20Estética/Spa:%20https://escobartobon-debug.github.io/presenciaya-formulario/ECOSISTEMAYA_FORMULARIOS.html', '_blank')">Enviar formulario →</button>
+            <div class="submit-nota">También puedes enviarlo por WhatsApp al 3052384536</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function enviarFormulario(nicho) {
+        const panel = document.getElementById('form-' + nicho);
+        const nichoLabel = {'veterinaria':'Veterinaria','salud':'Salud','estetica':'Estética/Spa'}[nicho];
+        let msg = 'Formulario Ecosistema YA — ' + nichoLabel + '\n\n';
+        panel.querySelectorAll('.field-group').forEach(group => {
+            const label = group.querySelector('.field-label');
+            if (!label) return;
+            const labelText = label.innerText.replace('(opcional)', '').replace('*', '').trim();
+            const input = group.querySelector('input[type="text"], input[type="tel"], input[type="email"], textarea');
+            if (input && input.value.trim()) msg += labelText + ': ' + input.value.trim() + '\n';
+            const seleccionados = [];
+            group.querySelectorAll('input[type="radio"]:checked, input[type="checkbox"]:checked').forEach(el => {
+                const opt = el.closest('.option-item');
+                if (opt) seleccionados.push(opt.innerText.trim());
+            });
+            if (seleccionados.length) msg += labelText + ': ' + seleccionados.join(', ') + '\n';
+        });
+        window.open('https://wa.me/573052384536?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    function showTab(nicho, el) {
+        document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('form-' + nicho).classList.add('active');
+        el.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function enviarFormulario(nicho) {
+        const panel = document.getElementById('form-' + nicho);
+        const nichoLabel = {'veterinaria':'🐾 Veterinaria','salud':'🏥 Salud','estetica':'💆 Estética/Spa'}[nicho];
+        let msg = '📋 *Formulario Ecosistema YA — ' + nichoLabel + '*\n\n';
+
+        panel.querySelectorAll('.form-section').forEach(section => {
+            const titulo = section.querySelector('.section-title');
+            if (titulo) {
+                const t = titulo.innerText.replace(/^\d+\s*/, '').trim();
+                msg += '▸ *' + t + '*\n';
+            }
+            section.querySelectorAll('.field-group').forEach(group => {
+                const label = group.querySelector('.field-label');
+                if (!label) return;
+                const labelText = label.innerText.replace('(opcional)', '').replace('*', '').trim();
+
+                const input = group.querySelector('input[type="text"], input[type="tel"], input[type="email"], textarea');
+                if (input && input.value.trim()) {
+                    msg += labelText + ': ' + input.value.trim() + '\n';
+                }
+
+                const seleccionados = [];
+                group.querySelectorAll('input[type="radio"]:checked, input[type="checkbox"]:checked').forEach(el => {
+                    const opt = el.closest('.option-item');
+                    if (opt) seleccionados.push(opt.innerText.trim());
+                });
+                if (seleccionados.length) {
+                    msg += labelText + ': ' + seleccionados.join(', ') + '\n';
+                }
+            });
+            msg += '\n';
+        });
+
+        window.open('https://wa.me/573052384536?text=' + encodeURIComponent(msg), '_blank');
+    }
+</script>
+</body>
+</html>
