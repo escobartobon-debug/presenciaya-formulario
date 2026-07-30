@@ -482,34 +482,72 @@ html { scroll-behavior: smooth; }
             margin-bottom: 3rem;
             color: #F39C12;
         }
-#eco-presencia .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+#eco-presencia .pricing-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 0.75rem;
         }
-#eco-presencia .pricing-item {
+#eco-presencia .pricing-table thead th {
             text-align: center;
-            padding: 2rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-        }
-#eco-presencia .pricing-label {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: rgba(255,255,255,0.6);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            padding-bottom: 0.5rem;
         }
-#eco-presencia .pricing-amount {
-            font-size: 2rem;
+#eco-presencia .pricing-table thead th:first-child {
+            text-align: left;
+        }
+#eco-presencia .pricing-table tbody tr {
+            background: rgba(255,255,255,0.05);
+        }
+#eco-presencia .pricing-table tbody td {
+            text-align: center;
+            padding: 1.25rem 1rem;
+            font-size: 1.35rem;
             font-weight: 900;
             color: #F39C12;
-            margin-bottom: 0.5rem;
         }
-#eco-presencia .pricing-desc {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.5;
+#eco-presencia .pricing-table tbody td:first-child {
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            border-radius: 12px 0 0 12px;
+            padding-left: 1.5rem;
+        }
+#eco-presencia .pricing-table tbody td:last-child {
+            border-radius: 0 12px 12px 0;
+        }
+#eco-presencia .pricing-note {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+@media (max-width: 700px) {
+#eco-presencia .pricing-table, #eco-presencia .pricing-table thead, #eco-presencia .pricing-table tbody, #eco-presencia .pricing-table th, #eco-presencia .pricing-table td, #eco-presencia .pricing-table tr {
+                display: block;
+            }
+#eco-presencia .pricing-table thead { display: none; }
+#eco-presencia .pricing-table tbody tr {
+                margin-bottom: 1rem;
+                padding: 1rem;
+                border-radius: 16px;
+            }
+#eco-presencia .pricing-table tbody td {
+                text-align: left;
+                padding: 0.4rem 0.5rem;
+            }
+#eco-presencia .pricing-table tbody td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                color: rgba(255,255,255,0.5);
+                margin-bottom: 0.2rem;
+            }
         }
 #eco-presencia .cta-final {
             background: linear-gradient(135deg, #F39C12 0%, #E08A0B 100%);
@@ -1180,26 +1218,38 @@ html { scroll-behavior: smooth; }
         
         <div class="pricing-breakdown">
             <h3 class="pricing-title">Inversión completa</h3>
-            
-            <div class="pricing-grid">
-                <div class="pricing-item">
-                    <div class="pricing-label">Entrada Inicial</div>
-                    <div class="pricing-amount">$790.000 - $1.490.000</div>
-                    <p class="pricing-desc">Dominio, hosting, SSL y desarrollo completo</p>
-                </div>
-                
-                <div class="pricing-item">
-                    <div class="pricing-label">Mensualidad</div>
-                    <div class="pricing-amount">$150.000 - $310.000</div>
-                    <p class="pricing-desc">Mantenimiento, backups y correcciones</p>
-                </div>
-                
-                <div class="pricing-item">
-                    <div class="pricing-label">Renovación Anual</div>
-                    <div class="pricing-amount">$95.000 - $210.000</div>
-                    <p class="pricing-desc">Dominio, SSL y hospedaje anual</p>
-                </div>
-            </div>
+
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Pago inicial</th>
+                        <th>Mensualidad</th>
+                        <th>Renovación anual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Plan">Esencial</td>
+                        <td data-label="Pago inicial">$790.000</td>
+                        <td data-label="Mensualidad">$150.000</td>
+                        <td data-label="Renovación anual">$95.000</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Plan">Profesional</td>
+                        <td data-label="Pago inicial">$1.090.000</td>
+                        <td data-label="Mensualidad">$210.000</td>
+                        <td data-label="Renovación anual">$155.000</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Plan">Premium</td>
+                        <td data-label="Pago inicial">$1.490.000</td>
+                        <td data-label="Mensualidad">$290.000</td>
+                        <td data-label="Renovación anual">$195.000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="pricing-note">Pago inicial: dominio, hosting, SSL y desarrollo completo · Mensualidad: mantenimiento, backups y correcciones · Renovación anual: dominio, SSL y hospedaje</p>
         </div>
     </section>
 
