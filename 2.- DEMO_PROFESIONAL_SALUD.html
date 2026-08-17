@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Andrés Patiño - Odontología General en Pereira | RETHUS OD-78452</title>
+    <meta name="description" content="Dr. Andrés Patiño - Odontólogo en Pereira. 14 años de experiencia. Tratamientos sin dolor, precios transparentes y atención personalizada. Agenda online disponible.">
+    <meta name="author" content="Dr. Andrés Patiño">
+    <link rel="canonical" href="https://tudominio.com/dr-patino">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tudominio.com/dr-patino">
+    <meta property="og:title" content="Dr. Andrés Patiño - Odontología General en Pereira">
+    <meta property="og:description" content="14 años de experiencia. Tratamientos sin dolor, precios transparentes y atención personalizada. Agenda tu valoración hoy.">
+    <meta property="og:image" content="https://tudominio.com/images/social-share.jpg">
+    <meta property="og:locale" content="es_CO">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dr. Andrés Patiño - Odontología General en Pereira">
+    <meta name="twitter:description" content="14 años de experiencia. Tratamientos sin dolor, precios transparentes y atención personalizada.">
+    <meta name="twitter:image" content="https://tudominio.com/images/social-share.jpg">
+    <!-- Preconnect Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Iconos Phosphor -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Schema.org MedicalClinic -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Dr. Andrés Patiño - Odontología General",
+      "telephone": "+573124589732",
+      "email": "contacto@dominio.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Principal #456",
+        "addressLocality": "Pereira",
+        "addressRegion": "Risaralda",
+        "postalCode": "660001",
+        "addressCountry": "CO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 4.8133,
+        "longitude": -75.6961
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "medicalSpecialty": "Odontología General",
+      "priceRange": "$$",
+      "url": "https://tudominio.com/dr-patino",
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Andrés Patiño",
+        "medicalCredential": "RETHUS OD-78452"
+      }
+    }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #00BCD4;
+            --color-secondary: #0097A7;
+            --color-accent: #26C6DA;
+            --color-dark: #0f0f0f;
+            --color-darker: #1a1a1a;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--color-dark);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+        
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--color-primary); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .header-cta-mobile {
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: none;
+        }
+        
+        .header-cta {
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.4);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #00BCD4 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,188,212,0.2) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #ffffff, var(--color-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .badge-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            display: block;
+        }
+        
+        .badge-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .cta-primary {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,188,212,0.4);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,188,212,0.6);
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title span {
+            color: var(--color-primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .fortaleza-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            padding: 5rem 2rem;
+            color: var(--color-dark);
+        }
+        
+        .fortaleza-box {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .fortaleza-box h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+        
+        .fortaleza-box p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .fortaleza-box strong {
+            font-weight: 800;
+        }
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .servicio-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .servicio-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-primary);
+            box-shadow: 0 20px 60px rgba(0,188,212,0.2);
+        }
+        
+        .servicio-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .servicio-titulo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        .servicio-desc {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .servicio-precio {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            margin-top: 1rem;
+        }
+        
+        .ofertas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .oferta-card {
+            background: rgba(0,188,212,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--color-primary);
+            position: relative;
+        }
+        
+        .oferta-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+        
+        .oferta-titulo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .oferta-precio {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .oferta-desc {
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonio-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .testimonio-texto {
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .testimonio-autor {
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .galeria-item {
+            aspect-ratio: 4/3;
+            border-radius: 15px;
+            border: 1px solid rgba(0,188,212,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .galeria-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+            box-shadow: 0 15px 40px rgba(0,188,212,0.3);
+        }
+        
+        .galeria-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        
+        .galeria-icon {
+            font-size: 4rem;
+            z-index: 1;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            display: block;
+        }
+        
+        .galeria-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            z-index: 1;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .formulario-section {
+            background: var(--color-darker);
+            padding: 5rem 2rem;
+        }
+        
+        .formulario-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 1.25rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,188,212,0.4);
+        }
+        
+        .ubicacion-section {
+            padding: 5rem 2rem;
+        }
+        
+        .ubicacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .info-box {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .info-box h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .info-box p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+        
+        footer {
+            background: var(--color-dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        footer p {
+            color: rgba(255,255,255,0.5);
+            margin: 0.5rem 0;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .fortaleza-box h2 {
+                font-size: 2rem;
+            }
+            
+            .badges {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(15,15,15,0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            nav.active { display: flex; }
+            .menu-toggle { display: block; }
+            .header-cta-mobile { display: inline-block; }
+            .header-cta { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Dr. Andrés Patiño</div>
+            <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')" aria-label="Abrir menú">☰</button>
+            <nav>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#contacto" class="header-cta-mobile">Agendar Cita</a>
+            </nav>
+            <a href="#contacto" class="header-cta">Agendar Cita</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>14 años cuidando tu sonrisa</h1>
+            <p class="hero-subtitle">
+                Odontología general con anestesia moderna que no duele, precios transparentes 
+                y atención personalizada. Tu salud oral en manos de un profesional con experiencia.
+            </p>
+            
+            <div class="badges">
+                <div class="badge">
+                    <span class="badge-number">14 años</span>
+                    <span class="badge-label">Experiencia</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-number">OD-78452</span>
+                    <span class="badge-label">RETHUS</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-number">Sin dolor</span>
+                    <span class="badge-label">Anestesia moderna</span>
+                </div>
+            </div>
+            
+            <a href="#contacto" class="cta-primary">Agenda tu Valoración</a>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
+                <div style="background: rgba(0,188,212,0.15); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid rgba(0,188,212,0.3); display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="ph-fill ph-shield-check" style="font-size: 1.2rem; color: var(--color-primary);"></i>
+                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">RETHUS OD-78452</span>
+                </div>
+                <div style="background: rgba(0,188,212,0.15); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid rgba(0,188,212,0.3); display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="ph-fill ph-clock-counter-clockwise" style="font-size: 1.2rem; color: var(--color-primary);"></i>
+                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">14 años de experiencia</span>
+                </div>
+                <div style="background: rgba(255,193,7,0.15); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid rgba(255,193,7,0.3); display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="ph-fill ph-warning-circle" style="font-size: 1.2rem; color: #FFC107;"></i>
+                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.9);"><strong>Cupos limitados esta semana</strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fortaleza-section">
+        <div class="fortaleza-box">
+            <h2>NUESTRA FORTALEZA</h2>
+            
+            <p>
+                Sé lo que se siente.<br>
+                Ir al odontólogo con miedo.<br>
+                Temer que duela.<br>
+                Preocuparte por el costo.
+            </p>
+            
+            <p>
+                <strong>Por eso decidí hacer las cosas diferente.</strong>
+            </p>
+            
+            <p>
+                En mi consultorio primero te explico qué necesitas y cuánto cuesta.<br>
+                Sin sorpresas.<br>
+                Sin venderte tratamientos que no necesitas.
+            </p>
+            
+            <p>
+                Y trabajo con anestesia moderna que hace que <strong>no sientas dolor.</strong>
+            </p>
+            
+            <p>
+                <strong>Porque ir al odontólogo no tiene que dar miedo.</strong>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="servicios">
+        <h2 class="section-title">Mis <span>Servicios</span></h2>
+        <p class="section-subtitle">
+            Tratamientos odontológicos completos con la mejor tecnología
+        </p>
+        
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <i class="ph ph-tooth servicio-icon"></i>
+                <h3 class="servicio-titulo">Limpieza Dental</h3>
+                <p class="servicio-desc">
+                    Profilaxis profesional con ultrasonido. Previene caries y enfermedad de encías.
+                </p>
+                <div class="servicio-precio">Desde $80.000</div>
+            </div>
+            
+            <div class="servicio-card">
+                <i class="ph ph-sparkle servicio-icon"></i>
+                <h3 class="servicio-titulo">Blanqueamiento</h3>
+                <p class="servicio-desc">
+                    Blanqueamiento LED profesional. Dientes más blancos en una sola sesión.
+                </p>
+                <div class="servicio-precio">$250.000</div>
+            </div>
+            
+            <div class="servicio-card">
+                <i class="ph ph-paint-brush-broad servicio-icon"></i>
+                <h3 class="servicio-titulo">Resinas</h3>
+                <p class="servicio-desc">
+                    Restauraciones estéticas del color de tu diente. Duraderas y naturales.
+                </p>
+                <div class="servicio-precio">Desde $120.000</div>
+            </div>
+            
+            <div class="servicio-card">
+                <i class="ph ph-first-aid-kit servicio-icon"></i>
+                <h3 class="servicio-titulo">Extracción</h3>
+                <p class="servicio-desc">
+                    Extracciones simples con anestesia moderna. Sin dolor ni complicaciones.
+                </p>
+                <div class="servicio-precio">Desde $100.000</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--color-darker);">
+        <h2 class="section-title">Ofertas <span>Especiales</span></h2>
+        <p class="section-subtitle">
+            Paquetes diseñados para cuidar tu salud oral con descuento
+        </p>
+        
+        <div class="ofertas-grid">
+            <div class="oferta-card">
+                <div class="oferta-badge"><i class="ph-fill ph-fire"></i> POPULAR</div>
+                <h3 class="oferta-titulo">Blanqueamiento LED</h3>
+                <div class="oferta-precio">$250.000</div>
+                <p class="oferta-desc">
+                    Incluye: Limpieza dental + Blanqueamiento LED profesional + Kit de mantenimiento en casa
+                </p>
+            </div>
+            
+            <div class="oferta-card">
+                <div class="oferta-badge"><i class="ph ph-gem"></i> AHORRO</div>
+                <h3 class="oferta-titulo">Plan Limpieza Anual</h3>
+                <div class="oferta-precio">$180.000</div>
+                <p class="oferta-desc">
+                    3 limpiezas al año (cada 4 meses). Precio normal $240.000. Ahorras $60.000.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Lo que dicen <span>mis pacientes</span></h2>
+        
+        <div class="testimonios-grid">
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "Llevaba años sin ir al odontólogo por miedo. El Dr. Patiño fue super paciente 
+                    y no sentí nada de dolor. Ahora voy cada 6 meses sin problema."
+                </p>
+                <p class="testimonio-autor">— María José, 34 años</p>
+            </div>
+            
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "Lo que más me gustó es que me explicó todo antes de empezar y me dijo cuánto 
+                    iba a costar. Nada de sorpresas al final."
+                </p>
+                <p class="testimonio-autor">— Carlos Andrés, 41 años</p>
+            </div>
+            
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "El blanqueamiento quedó hermoso. Me quedaron los dientes súper blancos y naturales. 
+                    Súper recomendado."
+                </p>
+                <p class="testimonio-autor">— Laura, 28 años</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Mi <span>Consultorio</span></h2>
+        <p class="section-subtitle">
+            Instalaciones modernas y equipamiento de última tecnología
+        </p>
+        
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(0,188,212,0.4), rgba(0,151,167,0.2));"></div>
+                <i class="ph ph-tooth galeria-icon"></i>
+                <div class="galeria-label">Sala de consulta</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(0,151,167,0.4), rgba(0,188,212,0.2));"></div>
+                <i class="ph ph-first-aid-kit galeria-icon"></i>
+                <div class="galeria-label">Equipo médico</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(0,188,212,0.3), rgba(38,198,218,0.2));"></div>
+                <i class="ph ph-desktop galeria-icon"></i>
+                <div class="galeria-label">Rayos X digitales</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(38,198,218,0.4), rgba(0,188,212,0.2));"></div>
+                <i class="ph ph-armchair galeria-icon"></i>
+                <div class="galeria-label">Sala de espera</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(0,151,167,0.3), rgba(0,188,212,0.2));"></div>
+                <i class="ph ph-stethoscope galeria-icon"></i>
+                <div class="galeria-label">Área de esterilización</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(0,188,212,0.4), rgba(38,198,218,0.2));"></div>
+                <i class="ph ph-storefront galeria-icon"></i>
+                <div class="galeria-label">Recepción</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="formulario-section" id="contacto">
+        <div class="formulario-container">
+            <h2 class="section-title">Agenda tu <span>Cita</span></h2>
+            <p class="section-subtitle">
+                Completa el formulario y te contactaré para confirmar tu valoración
+            </p>
+            
+            <form action="https://formsubmit.co/contacto@dominio.com" method="POST">
+                <input type="text" name="_gotcha" style="display:none;">
+                <input type="hidden" name="_next" value="https://tudominio.com/gracias">
+                <input type="hidden" name="_subject" value="Nueva solicitud de cita - Dr. Patiño">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">WhatsApp *</label>
+                    <input type="tel" id="telefono" name="telefono" pattern="[0-9+\s]{7,15}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tratamiento">¿Qué necesitas?</label>
+                    <select id="tratamiento" name="tratamiento">
+                        <option value="">Selecciona una opción</option>
+                        <option value="Valoración general">Valoración general</option>
+                        <option value="Limpieza dental">Limpieza dental</option>
+                        <option value="Blanqueamiento">Blanqueamiento</option>
+                        <option value="Resinas / Caries">Resinas / Caries</option>
+                        <option value="Extracción">Extracción</option>
+                        <option value="Otro tratamiento">Otro tratamiento</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje">Comentarios adicionales</label>
+                    <textarea id="mensaje" name="mensaje"></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">Solicitar Cita</button>
+            </form>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">¿Prefieres agendar rápido?</p>
+                <a href="https://wa.me/573124589732" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700;">
+                    <i class="ph-fill ph-whatsapp-logo" style="font-size: 1.5rem;"></i>
+                    Agendar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="ubicacion-section" id="ubicacion">
+        <h2 class="section-title">Ubicación y <span>Horarios</span></h2>
+        
+        <div class="ubicacion-grid">
+            <div class="info-box">
+                <h3><i class="ph ph-map-pin"></i> Dirección</h3>
+                <p>
+                    Pereira, Risaralda<br>
+                    Colombia
+                </p>
+            </div>
+            
+            <div class="info-box">
+                <h3>⏰ Horarios</h3>
+                <p>
+                    Lunes a Viernes<br>
+                    9:00 AM - 7:00 PM<br>
+                    <br>
+                    Sábados<br>
+                    9:00 AM - 2:00 PM
+                </p>
+            </div>
+            
+            <div class="info-box">
+                <h3><i class="ph ph-phone"></i> Contacto</h3>
+                <p>
+                    WhatsApp: +57 312 458 9732<br>
+                    RETHUS: OD-78452<br>
+                    Citas por WhatsApp
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Dr. Andrés Patiño</strong> - Odontología General</p>
+        <p>14 años de experiencia · RETHUS OD-78452</p>
+        <p>Pereira, Risaralda · Colombia</p>
+        <p>WhatsApp: +57 312 458 9732</p>
+        <p style="margin-top: 2rem; font-size: 0.85rem;">Página creada por <strong style="color: #00BCD4;">PresenciaYA</strong></p>
+    </footer>
+
+    <a href="https://wa.me/573124589732" class="whatsapp-float" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i></a>
+</body>
+</html>
