@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetNova - Clínica Veterinaria Profesional en Pereira | RETHUS VET-78452</title>
+    <meta name="description" content="VetNova Profesional: Atención especializada, laboratorio propio, cirugías complejas y hospitalización 24/7. Porque tu mascota merece lo mejor.">
+    <meta name="author" content="VetNova">
+    <link rel="canonical" href="https://tudominio.com/vetnova-profesional">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tudominio.com/vetnova-profesional">
+    <meta property="og:title" content="VetNova - Clínica Veterinaria Profesional en Pereira">
+    <meta property="og:description" content="Laboratorio propio, cirugías especializadas, hospitalización 24/7. Atención médica de alta calidad para tu mascota.">
+    <meta property="og:image" content="https://tudominio.com/images/social-share.jpg">
+    <meta property="og:locale" content="es_CO">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VetNova - Clínica Veterinaria Profesional en Pereira">
+    <meta name="twitter:description" content="Laboratorio propio, cirugías especializadas, hospitalización 24/7.">
+    <meta name="twitter:image" content="https://tudominio.com/images/social-share.jpg">
+    <!-- Preconnect Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Iconos Phosphor -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Schema.org VeterinaryCare -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VeterinaryCare",
+      "name": "VetNova - Clínica Veterinaria Profesional",
+      "telephone": "+573001234567",
+      "email": "contacto@dominio.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Principal #321",
+        "addressLocality": "Pereira",
+        "addressRegion": "Risaralda",
+        "postalCode": "660001",
+        "addressCountry": "CO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 4.8133,
+        "longitude": -75.6961
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "medicalSpecialty": "Medicina Veterinaria Especializada",
+      "priceRange": "$$$",
+      "url": "https://tudominio.com/vetnova-profesional",
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Roberto Mendoza",
+        "medicalCredential": "RETHUS VET-78452"
+      }
+    }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #7B1FA2;
+            --color-secondary: #6A1B9A;
+            --color-accent: #9C27B0;
+            --color-dark: #0f0f0f;
+            --color-darker: #1a1a1a;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--color-dark);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            letter-spacing: -0.5px;
+        }
+        
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--color-primary); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .header-cta-mobile {
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: none;
+        }
+        
+        .header-cta {
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(123, 31, 162, 0.4);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #7B1FA2 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(123,31,162,0.2) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #ffffff, var(--color-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .badge-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            display: block;
+        }
+        
+        .badge-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .cta-primary {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 40px rgba(123,31,162,0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(123,31,162,0.6);
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+        
+        .section-title span {
+            color: var(--color-primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .fortaleza-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            padding: 5rem 2rem;
+            color: var(--color-dark);
+        }
+        
+        .fortaleza-box {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .fortaleza-box h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+        
+        .fortaleza-box p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .fortaleza-box strong {
+            font-weight: 800;
+        }
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .servicio-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .servicio-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-primary);
+            box-shadow: 0 20px 60px rgba(123,31,162,0.2);
+        }
+        
+        .servicio-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--color-primary);
+        }
+        
+        .servicio-titulo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        .servicio-desc {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+        
+        .ofertas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .oferta-card {
+            background: rgba(123,31,162,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--color-primary);
+            position: relative;
+        }
+        
+        .oferta-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+        
+        .oferta-titulo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .oferta-desc {
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonio-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .testimonio-texto {
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .testimonio-autor {
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .galeria-item {
+            aspect-ratio: 4/3;
+            border-radius: 15px;
+            border: 1px solid rgba(123,31,162,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .galeria-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+            box-shadow: 0 15px 40px rgba(123,31,162,0.3);
+        }
+        
+        .galeria-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        
+        .galeria-icon {
+            font-size: 4rem;
+            z-index: 1;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            display: block;
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .galeria-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            z-index: 1;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .formulario-section {
+            background: var(--color-darker);
+            padding: 5rem 2rem;
+        }
+        
+        .formulario-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 1.25rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(123,31,162,0.4);
+        }
+        
+        .ubicacion-section {
+            padding: 5rem 2rem;
+        }
+        
+        .ubicacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .info-box {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .info-box h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .info-box p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+        
+        footer {
+            background: var(--color-dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        footer p {
+            color: rgba(255,255,255,0.5);
+            margin: 0.5rem 0;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .fortaleza-box h2 {
+                font-size: 2rem;
+            }
+            
+            .badges {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(15,15,15,0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            nav.active { display: flex; }
+            .menu-toggle { display: block; }
+            .header-cta-mobile { display: inline-block; }
+            .header-cta { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">VetNova</div>
+            <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')" aria-label="Abrir menú">☰</button>
+            <nav>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#contacto" class="header-cta-mobile">Agendar Cita</a>
+            </nav>
+            <a href="#contacto" class="header-cta">Agendar Cita</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Tu mascota merece atención de especialistas</h1>
+            <p class="hero-subtitle">
+                Clínica veterinaria profesional con laboratorio propio, cirugías complejas 
+                y hospitalización 24/7. Medicina veterinaria de alta complejidad en Pereira.
+            </p>
+            
+            <div class="badges">
+                <div class="badge">
+                    <span class="badge-number">12 años</span>
+                    <span class="badge-label">Experiencia</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-number">Laboratorio</span>
+                    <span class="badge-label">Propio</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-number">24/7</span>
+                    <span class="badge-label">Hospitalización</span>
+                </div>
+            </div>
+            
+            <a href="#contacto" class="cta-primary">Agendar Consulta</a>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
+                <div style="background: rgba(123,31,162,0.15); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid rgba(123,31,162,0.3); display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="ph-fill ph-shield-check" style="font-size: 1.2rem; color: var(--color-primary);"></i>
+                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">RETHUS VET-78452</span>
+                </div>
+                <div style="background: rgba(123,31,162,0.15); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid rgba(123,31,162,0.3); display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="ph-fill ph-flask" style="font-size: 1.2rem; color: var(--color-primary);"></i>
+                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.9);"><strong>Laboratorio propio - resultados mismos día</strong></span>
+                </div>
+                <div style="background: rgba(255,193,7,0.15); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid rgba(255,193,7,0.3); display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="ph-fill ph-warning-circle" style="font-size: 1.2rem; color: #FFC107;"></i>
+                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.9);"><strong>Cupos limitados esta semana</strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fortaleza-section">
+        <div class="fortaleza-box">
+            <h2>NUESTRA FORTALEZA</h2>
+            
+            <p>
+                Sé lo que se siente.<br>
+                Que te digan "hay que hacer exámenes" y esperar 3 días por resultados.<br>
+                Dejar a tu mascota internada y no saber cómo sigue.<br>
+                Buscar un especialista y que no haya en tu ciudad.
+            </p>
+            
+            <p>
+                <strong>Por eso VetNova tiene laboratorio propio.</strong>
+            </p>
+            
+            <p>
+                Los exámenes los hacemos aquí. Resultados el mismo día.<br>
+                Si necesita hospitalización, te enviamos fotos y llamamos con actualizaciones.<br>
+                Y tenemos veterinarios especializados en ortopedia, dermatología y medicina interna.
+            </p>
+            
+            <p>
+                <strong>Porque las enfermedades complejas necesitan atención especializada.</strong>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="servicios">
+        <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+        <p class="section-subtitle">
+            Atención veterinaria especializada y de alta complejidad
+        </p>
+        
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <i class="ph ph-flask servicio-icon"></i>
+                <h3 class="servicio-titulo">Laboratorio Clínico</h3>
+                <p class="servicio-desc">
+                    Propio. Hematología, química sanguínea, uroanálisis. Resultados el mismo día.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <i class="ph ph-bed servicio-icon"></i>
+                <h3 class="servicio-titulo">Hospitalización</h3>
+                <p class="servicio-desc">
+                    UCI veterinaria con oxígeno, fluidoterapia y monitoreo 24/7. Te actualizamos por fotos.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <i class="ph ph-bone servicio-icon"></i>
+                <h3 class="servicio-titulo">Ortopedia Veterinaria</h3>
+                <p class="servicio-desc">
+                    Fracturas, luxaciones, displasias. Cirugías ortopédicas con placas y tornillos.
+                </p>
+            </div>
+            
+            <div class="servicio-card">
+                <i class="ph ph-heart service-icon"></i>
+                <h3 class="servicio-titulo">Medicina Interna</h3>
+                <p class="servicio-desc">
+                    Enfermedades renales, hepáticas, cardiacas. Diagnóstico y tratamiento especializado.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--color-darker);">
+        <h2 class="section-title">Planes <span>Especiales</span></h2>
+        <p class="section-subtitle">
+            Paquetes diseñados para cuidar a tu mascota a largo plazo
+        </p>
+        
+        <div class="ofertas-grid">
+            <div class="oferta-card">
+                <div class="oferta-badge"><i class="ph-fill ph-fire"></i> POPULAR</div>
+                <h3 class="oferta-titulo">Plan Cachorro</h3>
+                <div class="oferta-precio">$350.000</div>
+                <p class="oferta-desc">
+                    Esquema completo vacunación + 3 desparasitaciones + Consulta seguimiento cada mes. Todo incluido.
+                </p>
+            </div>
+            
+            <div class="oferta-card">
+                <div class="oferta-badge"><i class="ph ph-heart"></i> PREVENTIVO</div>
+                <h3 class="oferta-titulo">Plan Salud Anual</h3>
+                <div class="oferta-precio">$580.000/año</div>
+                <p class="oferta-desc">
+                    2 chequeos al año + Vacunas refuerzo + Exámenes laboratorio + Limpieza dental.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Lo que dicen <span>nuestros clientes</span></h2>
+        
+        <div class="testimonios-grid">
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "Mi perra tenía una fractura compleja. La operaron aquí y quedó perfecta. 
+                    El seguimiento post-operatorio fue excelente."
+                </p>
+                <p class="testimonio-autor">— Andrea, dueña de Luna</p>
+            </div>
+            
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "Lo mejor es el laboratorio propio. Los resultados el mismo día me ayudaron 
+                    a tomar decisiones rápido cuando mi gato estaba grave."
+                </p>
+                <p class="testimonio-autor">— Carlos, dueño de Simón</p>
+            </div>
+            
+            <div class="testimonio-card">
+                <p class="testimonio-texto">
+                    "Dejé a mi perro hospitalizado y me mandaban fotos cada 4 horas. Eso me dio 
+                    mucha tranquilidad. Se nota que aman a los animales."
+                </p>
+                <p class="testimonio-autor">— María José, dueña de Max</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Nuestras <span>Instalaciones</span></h2>
+        <p class="section-subtitle">
+            Equipamiento profesional para atención especializada
+        </p>
+        
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(123,31,162,0.4), rgba(106,27,154,0.2));"></div>
+                <i class="ph ph-flask galeria-icon"></i>
+                <div class="galeria-label">Laboratorio clínico</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(106,27,154,0.4), rgba(123,31,162,0.2));"></div>
+                <i class="ph ph-bed galeria-icon"></i>
+                <div class="galeria-label">UCI veterinaria</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(123,31,162,0.3), rgba(156,39,176,0.2));"></div>
+                <i class="ph ph-surgical-mask galeria-icon"></i>
+                <div class="galeria-label">Quirófano equipado</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(156,39,176,0.4), rgba(123,31,162,0.2));"></div>
+                <i class="ph ph-microscope galeria-icon"></i>
+                <div class="galeria-label">Área diagnóstico</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(106,27,154,0.3), rgba(123,31,162,0.2));"></div>
+                <i class="ph ph-syringe galeria-icon"></i>
+                <div class="galeria-label">Sala procedimientos</div>
+            </div>
+            
+            <div class="galeria-item">
+                <div class="galeria-bg" style="background: linear-gradient(135deg, rgba(123,31,162,0.4), rgba(156,39,176,0.2));"></div>
+                <i class="ph ph-first-aid-kit galeria-icon"></i>
+                <div class="galeria-label">Hospitalización</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="formulario-section" id="contacto">
+        <div class="formulario-container">
+            <h2 class="section-title">Agenda tu <span>Consulta</span></h2>
+            <p class="section-subtitle">
+                Completa el formulario y te contactamos para confirmar disponibilidad
+            </p>
+            
+            <form action="https://formsubmit.co/contacto@dominio.com" method="POST">
+                <input type="text" name="_gotcha" style="display:none;">
+                <input type="hidden" name="_next" value="https://tudominio.com/gracias">
+                <input type="hidden" name="_subject" value="Nueva solicitud de cita - VetNova Profesional">
+
+                <div class="form-group">
+                    <label for="nombre">Tu nombre *</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">WhatsApp *</label>
+                    <input type="tel" id="telefono" name="telefono" pattern="[0-9+\s]{7,15}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="servicio">Tipo de servicio</label>
+                    <select id="servicio" name="servicio">
+                        <option value="">Selecciona una opción</option>
+                        <option value="Consulta general">Consulta general</option>
+                        <option value="Exámenes de laboratorio">Exámenes de laboratorio</option>
+                        <option value="Cirugía programada">Cirugía programada</option>
+                        <option value="Urgencia">Urgencia</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje">Describe la situación</label>
+                    <textarea id="mensaje" name="mensaje"></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">Solicitar Cita</button>
+            </form>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">¿Prefieres agendar rápido?</p>
+                <a href="https://wa.me/573001234567" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700;">
+                    <i class="ph-fill ph-whatsapp-logo" style="font-size: 1.5rem;"></i>
+                    Agendar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="ubicacion-section" id="ubicacion">
+        <h2 class="section-title">Ubicación y <span>Horarios</span></h2>
+        
+        <div class="ubicacion-grid">
+            <div class="info-box">
+                <h3><i class="ph ph-map-pin"></i> Dirección</h3>
+                <p>
+                    Pereira, Risaralda<br>
+                    Colombia
+                </p>
+            </div>
+            
+            <div class="info-box">
+                <h3>⏰ Horarios</h3>
+                <p>
+                    Lunes a Domingo<br>
+                    8:00 AM - 8:00 PM<br>
+                    <br>
+                    Urgencias y Hospitalización<br>
+                    24 horas · 7 días
+                </p>
+            </div>
+            
+            <div class="info-box">
+                <h3><i class="ph ph-phone"></i> Contacto</h3>
+                <p>
+                    WhatsApp: +57 300 123 4567<br>
+                    RETHUS: VET-78452<br>
+                    Laboratorio propio<br>
+                    Hospitalización 24/7
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>VetNova</strong> - Clínica Veterinaria Profesional</p>
+        <p>12 años cuidando a tu familia de 4 patas · RETHUS VET-78452</p>
+        <p>Pereira, Risaralda · Colombia</p>
+        <p>WhatsApp: +57 300 123 4567</p>
+        <p style="margin-top: 2rem; font-size: 0.85rem;">Página creada por <strong style="color: #7B1FA2;">PresenciaYA</strong></p>
+    </footer>
+
+    <a href="https://wa.me/573001234567" class="whatsapp-float" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i></a>
+</body>
+</html>
