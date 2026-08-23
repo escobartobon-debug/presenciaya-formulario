@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosistema YA — Agente de Detección de Anomalías</title>
+<style>
+  :root{
+    --navy-deep:#081128;
+    --navy:#0F1E45;
+    --navy-soft:#1B2E63;
+    --orange:#F5821F;
+    --orange-light:#FFB05C;
+    --red:#E24B3E;
+    --paper:#F7F5F0;
+    --ink:#161B2E;
+    --muted:#5C6478;
+    --line:rgba(15,30,69,0.12);
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+    --serif: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    --sans: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--orange); color:white;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 32px;
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,245,240,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex; flex-direction:column; align-items:flex-start; gap:1px; font-weight:800; letter-spacing:-0.01em; font-size:19px; color:var(--navy);}
+  .brand .ya{color:var(--orange);}
+  .brand .sub{font-size:11px; font-weight:700; letter-spacing:2px; color:var(--orange); text-transform:uppercase;}
+  .brand-mark{
+    width:26px; height:26px; border-radius:7px;
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .brand-mark::after{
+    content:"";
+    width:12px; height:7px;
+    border-left:3px solid var(--orange);
+    border-bottom:3px solid var(--orange);
+    transform:rotate(-45deg) translate(1px,-2px);
+  }
+  .tag-pill{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.06em;
+    color:var(--navy); background:rgba(15,30,69,0.06);
+    padding:6px 12px; border-radius:20px; text-transform:uppercase;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 64px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--orange); font-weight:700;
+    margin-bottom:22px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:26px; height:1.5px; background:var(--orange);}
+  h1{
+    font-size:clamp(38px, 5.4vw, 62px);
+    font-weight:800; letter-spacing:-0.025em; line-height:1.05;
+    color:var(--navy); max-width:820px;
+  }
+  h1 em{font-style:normal; color:var(--orange);}
+  .lede{
+    font-family:var(--serif); font-size:20px; line-height:1.6;
+    color:var(--muted); max-width:600px; margin-top:26px;
+  }
+
+  /* ---------- STORY ---------- */
+  .story{
+    background:var(--navy); color:white;
+    padding:72px 0; margin-top:16px; position:relative; overflow:hidden;
+  }
+  .story::before{
+    content:""; position:absolute; top:-120px; left:-120px;
+    width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, rgba(226,75,62,0.22), transparent 70%);
+  }
+  .story-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:56px; align-items:center;}
+  .story-label{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--orange-light); margin-bottom:18px;
+  }
+  .story-text{
+    font-family:var(--serif); font-size:22px; line-height:1.65;
+    color:rgba(255,255,255,0.92);
+  }
+  .story-text .hi{color:var(--orange-light); font-style:italic;}
+  .anzuelo{
+    margin-top:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.16);
+    font-family:var(--serif); font-style:italic; font-size:19px; color:var(--orange-light);
+  }
+
+  /* ---------- ALERT DASHBOARD (signature element) ---------- */
+  .panel{
+    background:#0B142E; border-radius:18px; padding:4px;
+    box-shadow:0 40px 80px -30px rgba(0,0,0,0.6);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  .panel-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 18px; border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .dot-row{display:flex; gap:6px;}
+  .dot{width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.2);}
+  .panel-title{font-family:var(--mono); font-size:11px; color:rgba(255,255,255,0.5); letter-spacing:0.06em;}
+  .panel-body{padding:16px 18px 20px; display:flex; flex-direction:column; gap:10px;}
+
+  .alert-row{
+    display:flex; align-items:flex-start; gap:12px;
+    background:rgba(255,255,255,0.04); border-radius:10px; padding:12px 14px;
+    border-left:3px solid var(--muted);
+  }
+  .alert-row.warn{border-left-color:var(--orange); background:rgba(245,130,31,0.09);}
+  .alert-row.crit{border-left-color:var(--red); background:rgba(226,75,62,0.1);}
+  .alert-row.ok{border-left-color:#4CAF7D; background:rgba(76,175,125,0.08);}
+  .alert-icon{font-size:15px; margin-top:1px;}
+  .alert-text{font-size:13px; color:rgba(255,255,255,0.85); line-height:1.5;}
+  .alert-text b{color:white;}
+  .alert-time{font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,0.35); margin-left:auto; white-space:nowrap; padding-left:8px;}
+
+  /* ---------- SOLUCION ---------- */
+  .solution{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head .eyebrow{color:var(--navy);}
+  .section-head .eyebrow::before{background:var(--navy);}
+  h2{font-size:clamp(28px,3.4vw,38px); font-weight:800; letter-spacing:-0.02em; color:var(--navy);}
+  .section-head p{font-family:var(--serif); color:var(--muted); font-size:17px; margin-top:14px; line-height:1.6;}
+
+  .feature-row{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  }
+  .feature{background:var(--paper); padding:30px 26px;}
+  .feature .fnum{font-family:var(--mono); font-size:12px; color:var(--orange); font-weight:700; margin-bottom:14px;}
+  .feature h3{font-size:17px; font-weight:800; color:var(--navy); margin-bottom:8px; letter-spacing:-0.01em;}
+  .feature p{font-size:14.5px; color:var(--muted); line-height:1.55;}
+
+  .boundary{
+    margin-top:22px; padding:18px 22px; border-radius:12px;
+    background:rgba(226,75,62,0.06); border:1px solid rgba(226,75,62,0.22);
+    font-size:14px; color:var(--navy); display:flex; gap:12px; align-items:flex-start;
+  }
+  .boundary b{color:var(--red);}
+
+  /* ---------- BLOQUE ROSA MOREL (lo que nadie ve) ---------- */
+  .relato{padding:88px 0; background:var(--paper);}
+  .relato-grid{max-width:760px;}
+  .relato .eyebrow{color:var(--orange);}
+  .relato .eyebrow::before{background:var(--orange);}
+  .relato h2{margin-bottom:30px;}
+  .relato-story{
+    font-family:var(--serif); font-size:19px; line-height:1.7; color:var(--ink);
+    background:white; border:1px solid var(--line); border-left:4px solid var(--orange);
+    border-radius:10px; padding:26px 30px;
+  }
+  .relato-anzuelo{
+    font-family:var(--serif); font-style:italic; font-size:20px; color:var(--navy);
+    margin:26px 0; padding-left:2px;
+  }
+  .relato-solucion{
+    font-size:16.5px; line-height:1.65; color:var(--muted); max-width:680px;
+  }
+  .relato-solucion b{color:var(--navy);}
+
+  /* ---------- FORTALEZA ---------- */
+  .fortaleza{
+    background:var(--navy-deep); padding:88px 0; position:relative; overflow:hidden;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size:42px 42px;
+  }
+  .fortaleza-head{text-align:center; margin-bottom:44px;}
+  .fortaleza-head h2{
+    color:white; font-size:clamp(30px,4vw,42px);
+  }
+  .fortaleza-head h2 span{color:var(--orange);}
+  .fortaleza-card{
+    background:linear-gradient(155deg, var(--orange) 0%, #E86F12 100%);
+    border-radius:26px; padding:48px 52px; max-width:820px; margin:0 auto;
+  }
+  .fortaleza-card h3{
+    color:var(--navy-deep); font-size:24px; font-weight:800; letter-spacing:-0.01em; margin-bottom:22px;
+  }
+  .fortaleza-card p{
+    color:#241405; font-family:var(--serif); font-size:16.5px; line-height:1.65;
+  }
+  .fortaleza-card p + p{margin-top:16px;}
+  .fortaleza-card .close-line{
+    font-family:var(--sans); font-weight:800; font-style:normal; color:var(--navy-deep);
+  }
+
+  /* ---------- NICHOS ---------- */
+  .niches{background:#EEEAE1; padding:72px 0;}
+  .niche-list{display:grid; grid-template-columns:repeat(5, 1fr); gap:14px; margin-top:36px;}
+  .niche{
+    background:white; border:1px solid var(--line); border-radius:12px;
+    padding:20px 16px; text-align:center; transition:transform .15s ease, border-color .15s ease;
+  }
+  .niche:hover{transform:translateY(-3px); border-color:var(--orange);}
+  .niche .glyph{font-size:22px; margin-bottom:10px; display:block;}
+  .niche span.label{font-size:12.5px; font-weight:700; color:var(--navy); display:block; line-height:1.3;}
+
+  /* ---------- CTA ---------- */
+  .cta{padding:96px 0 110px; text-align:center;}
+  .cta-card{background:var(--navy); border-radius:22px; padding:64px 40px; position:relative; overflow:hidden;}
+  .cta-card::after{
+    content:""; position:absolute; bottom:-140px; left:50%; transform:translateX(-50%);
+    width:420px; height:420px; border-radius:50%;
+    background:radial-gradient(circle, rgba(226,75,62,0.24), transparent 70%);
+  }
+  .cta-card h2{color:white; max-width:560px; margin:0 auto 18px;}
+  .cta-card p{font-family:var(--serif); color:rgba(255,255,255,0.75); font-size:17px; max-width:480px; margin:0 auto 34px; position:relative; z-index:2;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--orange); color:var(--navy-deep); font-weight:800; font-size:15px;
+    padding:15px 30px; border-radius:10px; text-decoration:none; position:relative; z-index:2;
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .slogan{margin-top:26px; font-family:var(--mono); font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.5); text-transform:uppercase; position:relative; z-index:2;}
+  .slogan .ya{color:var(--orange-light);}
+
+  .cta-form{max-width:420px; margin:0 auto 28px; position:relative; z-index:2; display:flex; flex-direction:column; gap:12px;}
+  .cta-banner{
+    max-width:520px; margin:0 auto 24px; position:relative; z-index:2;
+    background:#1B6E7A; border-radius:10px; padding:16px 24px;
+    font-size:15px; font-weight:600; color:white; line-height:1.4;
+  }
+  .btn-secondary{
+    display:inline-flex; align-items:center; gap:10px; margin-top:14px;
+    background:transparent; color:white; font-weight:700; font-size:14px;
+    padding:13px 26px; border-radius:10px; text-decoration:none; position:relative; z-index:2;
+    border:1.5px solid rgba(255,255,255,0.35); transition:border-color .15s ease;
+  }
+  .btn-secondary:hover{border-color:var(--orange);}
+  .cta-input{
+    width:100%; padding:14px 18px; border-radius:10px; border:1px solid rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.06); color:white; font-size:15px; font-family:var(--sans);
+    outline:none; transition:border-color .15s ease, background .15s ease;
+  }
+  .cta-input::placeholder{color:rgba(255,255,255,0.4);}
+  .cta-input:focus{border-color:var(--orange); background:rgba(255,255,255,0.1);}
+
+  footer{padding:30px 0 50px; text-align:center; font-size:12.5px; color:var(--muted); font-family:var(--mono); line-height:1.9;}
+  footer .name{color:var(--navy); font-weight:700; font-family:var(--sans);}
+
+  @media (max-width:860px){
+    .story-grid{grid-template-columns:1fr;}
+    .feature-row{grid-template-columns:1fr;}
+    .niche-list{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+    .topbar{padding:16px 20px;}
+    .tag-pill{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span>Ecosistema<span class="ya">YA</span></span><span class="sub">DATA YA</span></div>
+  <div class="tag-pill">Agente · Detección de Anomalías</div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Agente de lanzamiento — 02</div>
+    <h1>Sin revisar tu negocio,<br>te llega un <em>aviso</em><br>cuando algo cambia.</h1>
+    <p class="lede">Un equipo digital que vigila caja, inventario, costos y ventas las 24 horas, y te alerta apenas algo se sale de lo normal — antes de que se vuelva un problema grande.</p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap story-grid">
+    <div class="panel">
+      <div class="panel-head">
+        <div class="dot-row"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <div class="panel-title">DATA YA — MONITOR EN VIVO</div>
+      </div>
+      <div class="panel-body">
+        <div class="alert-row crit">
+          <span class="alert-icon">⚠️</span>
+          <span class="alert-text"><b>Costo de insumo #4</b> subió 18% frente al promedio de 30 días. Revisa el proveedor antes de tu próxima compra.</span>
+          <span class="alert-time">hoy 09:14</span>
+        </div>
+        <div class="alert-row warn">
+          <span class="alert-icon">📦</span>
+          <span class="alert-text"><b>Inventario de bodega 2</b> muestra un faltante de 34 unidades frente al último conteo registrado.</span>
+          <span class="alert-time">hoy 07:52</span>
+        </div>
+        <div class="alert-row ok">
+          <span class="alert-icon">✅</span>
+          <span class="alert-text"><b>Caja del día anterior</b> cuadró sin novedades. Todo dentro del rango esperado.</span>
+          <span class="alert-time">ayer 22:00</span>
+        </div>
+        <div class="alert-row warn">
+          <span class="alert-icon">📉</span>
+          <span class="alert-text"><b>Ventas de la semana</b> bajaron 15% frente al promedio del mes. Vale la pena revisar qué está pasando.</span>
+          <span class="alert-time">hoy 08:30</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="story-label">Una escena que ya conoces</div>
+      <p class="story-text">Marta cerró la clínica un lunes y notó, casi por accidente, que el gasto en insumos llevaba <span class="hi">tres meses subiendo</span> sin que nadie lo hubiera notado a tiempo.</p>
+      <p class="anzuelo">¿Cuánto tiempo pasa, en tu negocio, entre que algo empieza a fallar y el día que por fin lo notas?</p>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">La solución</div>
+      <h2>Hoy existe un equipo digital que vigila por ti.</h2>
+      <p>No espera a que revises un reporte. Compara tus datos contra su comportamiento normal, todos los días, y te avisa apenas algo se desvía.</p>
+    </div>
+    <div class="feature-row">
+      <div class="feature">
+        <div class="fnum">01</div>
+        <h3>Vigilancia continua</h3>
+        <p>Caja, inventario, costos y ventas, revisados de forma constante — no solo al cierre de mes o cuando alguien se acuerda de mirar.</p>
+      </div>
+      <div class="feature">
+        <div class="fnum">02</div>
+        <h3>Alertas a tiempo</h3>
+        <p>Te avisa por WhatsApp apenas detecta algo fuera de lo normal, con el dato exacto y dónde ocurrió.</p>
+      </div>
+      <div class="feature">
+        <div class="fnum">03</div>
+        <h3>Tú decides, no el agente</h3>
+        <p>El equipo digital detecta y avisa. La decisión de qué hacer con esa información siempre es tuya.</p>
+      </div>
+    </div>
+    <div class="boundary">
+      <span>🔒</span>
+      <div><b>Importante:</b> el agente solo alerta. No controla ni gestiona accesos, inventarios o cuentas — es un vigía, no un administrador.</div>
+    </div>
+  </div>
+</section>
+
+<section class="fortaleza">
+  <div class="wrap">
+    <div class="fortaleza-head">
+      <h2>Nuestra <span>fortaleza</span></h2>
+    </div>
+    <div class="fortaleza-card">
+      <h3>Aprendemos cómo se comporta tu negocio antes de vigilarlo</h3>
+      <p>No encendemos una alarma genérica. Antes de activar el monitoreo, aprendemos cuál es el comportamiento normal de tu negocio: cuánto sube el costo en temporada alta, cuánto varía tu inventario entre bodegas, qué desviación es ruido y cuál es la que de verdad importa.</p>
+      <p class="close-line">Porque una alerta que no entiende tu negocio solo genera ruido. Una que sí lo entiende, avisa exactamente cuando hace falta — ni antes, ni tarde.</p>
+    </div>
+  </div>
+</section>
+
+<section class="relato">
+  <div class="wrap relato-grid">
+    <div class="eyebrow">Lo que nadie ve</div>
+    <h2>Entre que algo empieza a fallar y el día que se nota, pasa más tiempo del que parece.</h2>
+    <p class="relato-story">Revisar caja, costos e inventario contra su comportamiento normal, todos los días, no es realista para nadie que además tiene que administrar el negocio — por eso esa revisión pasa al cierre de mes, o a cuando algo ya llamó la atención.</p>
+    <p class="relato-anzuelo">¿Cuánto puede crecer un problema en un mes, antes de que alguien lo note?</p>
+    <p class="relato-solucion">Existe una forma de resolver esto: <b>la comparación diaria contra lo normal la hace un equipo digital</b>, y solo te llega la alerta cuando algo realmente se sale de rango — sin que tengas que agregarlo a tu carga de trabajo.</p>
+  </div>
+</section>
+
+<section class="niches">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:0;">
+      <div class="eyebrow">Para quién es</div>
+      <h2>Pensado para negocios donde una desviación pequeña, sin vigilancia, se vuelve una pérdida grande.</h2>
+    </div>
+    <div class="niche-list">
+      <div class="niche"><span class="glyph">🔩</span><span class="label">Distribuidoras<br>y mayoristas</span></div>
+      <div class="niche"><span class="glyph">☕</span><span class="label">Agroindustria<br>Eje Cafetero</span></div>
+      <div class="niche"><span class="glyph">🩺</span><span class="label">Clínicas y<br>centros médicos</span></div>
+      <div class="niche"><span class="glyph">🏗️</span><span class="label">Constructoras e<br>inmobiliarias</span></div>
+      <div class="niche"><span class="glyph">🚚</span><span class="label">Logística y<br>transporte</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-card">
+      <h2>¿Quieres probarlo tú mismo?</h2>
+      <div class="cta-banner">Déjanos tus datos y pruébalo, solicita formulario de inscripción</div>
+      <div class="cta-form">
+        <input class="cta-input" id="cta-nombre" type="text" placeholder="Tu nombre">
+        <input class="cta-input" id="cta-whatsapp" type="tel" placeholder="Tu WhatsApp">
+      </div>
+      <a class="btn" href="#" onclick="return abrirChatAnomalias(event)">Chat en vivo</a>
+      <br>
+      <a class="btn-secondary" href="4.- dataya-formulario-acuerdo.html" target="_blank">Solicito formulario de inscripción →</a>
+      <div class="slogan">De los datos a la decisión, <span class="ya">YA</span>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL DEMO — conectado al Chat Trigger real de n8n (datos reales de Clínica VitalCentro) -->
+<div id="modal-anomalias" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
+  <div style="position:relative; width:95%; max-width:480px; height:75vh; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 0 40px rgba(226,75,62,0.4);">
+    <button onclick="cerrarChatAnomalias()" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#333; z-index:10;">✕</button>
+    <iframe src="https://n8n.srv1676412.hstgr.cloud/webhook/e7c2a21d-920d-467e-9eaa-4763cb573ab9/chat" style="width:100%; height:100%; border:none;"></iframe>
+  </div>
+  <a href="https://wa.me/573123901477?text=Hola%20Enrique%2C%20quiero%20conocer%20el%20Agente%20de%20Detecci%C3%B3n%20de%20Anomal%C3%ADas%20de%20DATA%20YA%20y%20el%20formulario%20de%20inscripci%C3%B3n" style="margin-top:1.2rem; color:rgba(255,255,255,0.6); font-size:0.9rem; text-decoration:none;">
+    💬 Prefiero hablar con Enrique por WhatsApp
+  </a>
+</div>
+
+<script>
+  function abrirChatAnomalias(e){
+    e.preventDefault();
+    var nombre = document.getElementById('cta-nombre').value.trim();
+    var whatsapp = document.getElementById('cta-whatsapp').value.trim();
+    if(!nombre || !whatsapp){
+      alert('Por favor completa tu nombre y WhatsApp antes de iniciar el chat.');
+      return false;
+    }
+    document.getElementById('modal-anomalias').style.display = 'flex';
+    return false;
+  }
+  function cerrarChatAnomalias(){
+    document.getElementById('modal-anomalias').style.display = 'none';
+  }
+</script>
+
+<footer>
+  <span class="name">Ecosistema YA</span><br>
+  DATA YA<br>
+  <span class="name">Enrique Escobar Tobón</span> · Pereira, Colombia<br>
+  +57 312 390 1477 · e.escobar@ecosistemaya.pro
+</footer>
+
+</body>
+</html>
