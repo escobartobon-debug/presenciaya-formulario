@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosistema YA — Procesos Repetitivos</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --navy: #0A1F1A;
+    --menta: #10B981;
+    --menta-d: #059669;
+    --dorado: #F59E0B;
+    --cream: #FAF8F5;
+    --gray: #64748B;
+    --blanco: #FFFFFF;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: #1A1A1A;
+    line-height: 1.7;
+}
+
+.header {
+    background: var(--navy);
+    padding: 28px 24px;
+    text-align: center;
+}
+.brand {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--blanco);
+}
+.brand .ya { color: var(--dorado); }
+.sub {
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--menta);
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+.container { max-width: 680px; margin: 0 auto; padding: 50px 24px 80px; }
+
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 28px;
+}
+h1 em { color: var(--menta-d); font-style: normal; }
+
+p { font-size: 1.08rem; margin-bottom: 20px; color: #2A2A2A; }
+
+.destacado {
+    background: var(--blanco);
+    border-left: 4px solid var(--menta);
+    padding: 20px 24px;
+    margin: 28px 0;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--navy);
+}
+
+.lista-ejemplos {
+    background: var(--blanco);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 28px 0;
+    border: 1px solid #E5E0D8;
+}
+.lista-ejemplos h3 {
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--dorado);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+.lista-ejemplos ul { list-style: none; }
+.lista-ejemplos li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    font-size: 1.02rem;
+    border-bottom: 1px solid #F0EDE5;
+}
+.lista-ejemplos li:last-child { border-bottom: none; }
+.lista-ejemplos li::before {
+    content: "→";
+    position: absolute; left: 0;
+    color: var(--menta);
+    font-weight: 700;
+}
+
+.solucion-box {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 32px 0;
+    color: var(--blanco);
+}
+.solucion-box h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--menta);
+    margin-bottom: 16px;
+}
+.solucion-box p { color: #D8D8D8; margin-bottom: 14px; }
+.solucion-box p:last-child { margin-bottom: 0; }
+.solucion-box strong { color: var(--blanco); }
+
+.cta-final {
+    text-align: center;
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid #DDD5C7;
+}
+.cta-final p { font-family: Arial, sans-serif; font-size: 1rem; color: var(--gray); margin-bottom: 20px; }
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--menta-d), var(--menta));
+    color: var(--blanco);
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 24px;
+    font-family: Arial, sans-serif;
+    font-size: 0.82rem;
+    color: var(--gray);
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="brand">Ecosistema<span class="ya">YA</span></div>
+    <div class="sub">Procesos Repetitivos</div>
+</div>
+
+<div class="container">
+
+    <h1>Hay una diferencia entre <em>estar ocupado</em> y estar produciendo.</h1>
+
+    <p>Todos los días tu negocio hace cosas que ya hizo ayer, y antier, y la semana pasada — de la misma forma, a mano, gastando el mismo tiempo. A eso se le llama proceso repetitivo: una tarea que se repite igual, una y otra vez, sin necesitar criterio nuevo cada vez que ocurre.</p>
+
+    <p>El problema no es que existan. El problema es que casi nadie los nota — porque no duelen de golpe, como perder un cliente. Duelen poco a poco, todos los días, hasta que un mes te preguntas en qué se fue el tiempo.</p>
+
+    <div class="destacado">
+        "No es que te falte trabajo. Es que gran parte de tu tiempo se va en trabajo que ya no debería estar haciendo una persona."
+    </div>
+
+    <div class="lista-ejemplos">
+        <h3>Así se ven en la práctica</h3>
+        <ul>
+            <li>Responder la misma pregunta de precio o de horario, veinte veces por semana</li>
+            <li>Revisar el inventario a ojo antes de confirmar si hay o no hay algo disponible</li>
+            <li>Armar la misma cotización desde cero cada vez que alguien pregunta</li>
+            <li>Llamar uno por uno para recordar que deben pagar</li>
+            <li>Confirmar citas a mano, y volver a confirmar cuando alguien no contesta</li>
+        </ul>
+    </div>
+
+    <p>Ninguna de estas tareas es difícil. Por eso nadie las cuestiona. Pero sumadas, ocupan horas reales de tu semana — horas que podrían estar en vender, en atender lo que sí necesita tu criterio, o simplemente en descansar.</p>
+
+    <div class="solucion-box">
+        <h3>Así lo resuelve Ecosistema YA</h3>
+        <p>No hay un solo agente para "procesos repetitivos" — hay uno para cada tarea específica, porque cada proceso repetitivo es distinto.</p>
+        <p>Si el proceso es <strong>hablar con tus clientes</strong> — responder preguntas, agendar citas, cobrar — lo resuelve un agente de <strong>AgentesYA</strong>, conectado a tu WhatsApp.</p>
+        <p>Si el proceso es <strong>consultar o mover información de tu negocio</strong> — inventario, cartera, cotizaciones, agenda interna — lo resuelve un agente de <strong>DATA YA</strong>, conectado a tus datos reales.</p>
+        <p>La pregunta no es si tienes procesos repetitivos. Todo negocio los tiene. La pregunta es cuáles, y eso solo lo sabes tú — nosotros te ayudamos a ponerles agente.</p>
+    </div>
+
+    <div class="cta-final">
+        <p>Si esto te suena familiar, hablemos de cuáles son los tuyos.</p>
+        <a href="https://wa.me/573123901477?text=Hola%2C%20le%C3%AD%20sobre%20Procesos%20Repetitivos%20de%20Ecosistema%20YA%20y%20quiero%20saber%20m%C3%A1s" class="cta-button">Hablar por WhatsApp</a>
+    </div>
+
+</div>
+
+<footer>
+    Ecosistema YA · Enrique Escobar Tobón · Pereira, Colombia · +57 312 390 1477 · e.escobar@ecosistemaya.pro
+</footer>
+
+</body>
+</html>
